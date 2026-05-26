@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 15px 72px;
+    background-color: white;
+    color: white;
+    position: fixed;
+    width: 100vw;
+    gap:10vw;
+}
+
+h1 {
+    /* font-size: 24px; */
+    color: #1d0a0a;
+    margin-left: 3rem;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+select,
+input {
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+input {
+    width: 180px;
+}
+
+button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: black;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: unset;
+}
+
+/* .login {
+    color: black;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: unset;
+}
+
+.signup {
+    background-color: #ff4081;
+    color: white;
+} */
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* search */
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+.search-container {
+  width: 40vw;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 12px 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Location section */
+.location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #555;
+}
+
+.icon {
+  color: #ff4d4f;
+  font-size: 16px;
+}
+
+.city {
+  font-weight: 500;
+}
+
+.dropdown {
+  font-size: 12px;
+  color: #777;
+}
+
+/* Divider */
+.divider {
+  width: 1px;
+  height: 24px;
+  background: #ddd;
+  margin: 0 12px;
+}
+
+/* Search */
+.search-box {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.search-icon {
+  margin-right: 8px;
+  color: #888;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+}
+
+/* Placeholder style */
+.search-box input::placeholder {
+  color: #aaa;
+}
