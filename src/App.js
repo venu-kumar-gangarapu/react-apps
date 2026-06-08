@@ -1,15 +1,12 @@
-import { useState } from "react";
 import "./App.css";
-import Header from "./Header/header";
-import { Main } from "./Main/main";
-import Card from "./Card/card"
+import AppRotes from "./routes";
+import Header from "./shared/components/Header/header";
 
 function App() {
   return (
     <>
       <Header isLogin="true" />
-      <Main/>
-      {/* <Card/> */}
+        <AppRotes/>
       <Footer />
     </>
   );

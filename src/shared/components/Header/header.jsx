@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Login } from "../Login/login";
-import Modal from "../Modal/modal";
+import Modal from "../../../Modal/modal";
 import "./header.css";
 
 function Header({ isLogin }) {
