@@ -1,4 +1,6 @@
-import './main.css'
+import Banner from "../shared/components/Banner/banner";
+import CarouselCard from "../shared/components/Carousels/carousels";
+import "./main.css";
 const data = [
   {
     id: 1,
@@ -244,34 +246,38 @@ const data = [
 
 export function Main() {
   return (
-    <div className="grid">
-      {data.map((data,index) => (
-        <div className="card" key={index}>
-          <div className="image-container">
-            <img src={data.image} alt={data.name} />
+    <div className="main-container">
+      {/* <CarouselCard /> */}
+      {/* <Banner/> */}
+      <div className="grid">
+        {data.map((data, index) => (
+          <div className="card" key={index}>
+            <div className="image-container">
+              <img src={data.image} alt={data.name} />
 
-            {data.offer && <span className="offer">{data.offer}</span>}
+              {data.offer && <span className="offer">{data.offer}</span>}
 
-            {data.rating && <span className="rating">{data.rating} ★</span>}
-          </div>
-
-          <div className="content">
-            <div className="header">
-              <h3>{data.name}</h3>
-              <span className="price">₹{data.priceForTwo} for two</span>
+              {data.rating && <span className="rating">{data.rating} ★</span>}
             </div>
 
-            <p className="cuisines">{data.cuisines}</p>
+            <div className="content">
+              <div className="header">
+                <h3>{data.name}</h3>
+                <span className="price">₹{data.priceForTwo} for two</span>
+              </div>
 
-            <div className="footer">
-              <span>{data.location}</span>
-              <span>{data.distance}</span>
+              <p className="cuisines">{data.cuisines}</p>
+
+              <div className="footer">
+                <span>{data.location}</span>
+                <span>{data.distance}</span>
+              </div>
+
+              <p className="timing">Opens at {data.openingTime}</p>
             </div>
-
-            <p className="timing">Opens at {data.openingTime}</p>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }

@@ -1,20 +1,26 @@
 import { useState } from "react";
-import { Login } from "../Login/login";
-import Modal from "../../../Modal/modal";
+import {useNavigate} from 'react-router-dom';
 import "./header.css";
 
 function Header({ isLogin }) {
-  const [openLogin, setOpenLogin] = useState(false);
+  const navigate = useNavigate();
+  // const [openLogin, setOpenLogin] = useState(false);
   const [search, setSearch] = useState("");
   function searchSubmit(event){
     event.preventDefault();
     console.log('form',search);
     //controlled outputs hat controls the state of the form
   }
+  const handleLogin = () => {
+    navigate("/login");
+  };
+  const handleSignUp = () => {
+    navigate("/sign-up");
+  };
   return (
     <>
       <header>
-        <h1 >OrderNow</h1>
+        <h1 onClick={()=>navigate('/')}>OrderNow</h1>
         <div className="right-section">
           <div className="search-container">
             <div className="location">
@@ -37,8 +43,8 @@ function Header({ isLogin }) {
               </form>
             </div>
           </div>
-          <button className="login">Login</button>
-          <button className="signup">Sign Up</button>
+          <button className="login" onClick={()=>handleLogin()}>Login</button>
+          <button className="signup" onClick={()=>handleSignUp()}>Sign Up</button>
         </div>
       </header>
     </>

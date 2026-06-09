@@ -1,10 +1,13 @@
+.main-container{
+  position: sticky;
+  z-index: -1;
+  display: flex;
+}
 .grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding: 72px;
-  position: sticky;
-  z-index: -1;
   background-color: fbfbff;
 }
 .card {

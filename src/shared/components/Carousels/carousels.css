@@ -1,0 +1,36 @@
+.food-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,.08);
+  transition: .3s;
+}
+.img-food-card {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.food-card:hover {
+  transform: translateY(-6px);
+}
+
+
+.food-info {
+  padding: 16px;
+}
+
+.food-details {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0;
+}
+
+.food-info button {
+  width: 100%;
+  padding: 12px;
+  background: #e23744;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}

@@ -24,6 +24,7 @@ h1 {
     /* font-size: 24px; */
     color: #1d0a0a;
     margin-left: 3rem;
+    cursor: pointer;
 }
 
 .right-section {
@@ -54,6 +55,7 @@ button {
     font-weight: 500;
     font-size: 16px;
     background-color: unset;
+    cursor: pointer;
 }
 
 /* .login {
