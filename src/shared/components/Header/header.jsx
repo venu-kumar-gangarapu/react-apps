@@ -14,7 +14,7 @@ function Header({ isLogin }) {
   return (
     <>
       <header>
-        <h1>OrderNow</h1>
+        <h1 >OrderNow</h1>
         <div className="right-section">
           <div className="search-container">
             <div className="location">
@@ -26,7 +26,7 @@ function Header({ isLogin }) {
             <div className="divider"></div>
 
             <div className="search-box">
-              <form onSubmit={searchSubmit}>
+              <form className="d-flex" onSubmit={searchSubmit}>
                 <span className="search-icon"><button type="submit">🔍</button></span>
                 <input
                   value={search}

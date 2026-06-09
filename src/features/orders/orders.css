@@ -1,0 +1,32 @@
+.orders-page {
+  padding: 100px 80px;
+}
+
+.order-card {
+  background: white;
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+}
+
+.order-card img {
+  width: 150px;
+  height: 120px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.order-info {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.status {
+  background: #16a34a;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+}

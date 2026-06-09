@@ -5,6 +5,8 @@ import { Route, Routes } from "react-router-dom";
 import CrystalChimney from "./Test/Test";
 import Login from "./shared/components/Login/login";
 import SignUp from "./shared/components/Sign Up/signup";
+import Cart from "./features/cart/cart";
+import Orders from "./features/orders/orders";
 
 export default function AppRotes() {
     return (
@@ -14,7 +16,8 @@ export default function AppRotes() {
             <Route path="/login" element={<Login />} />
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/home" element={<Main />} />
-            <Route path="/orders" element={<CrystalChimney />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/orders" element={<Orders />} />
         </Routes>
     )
 }

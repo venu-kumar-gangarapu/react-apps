@@ -16,6 +16,10 @@ header {
     gap:10vw;
 }
 
+.d-flex{
+  display: flex;
+}
+
 h1 {
     /* font-size: 24px; */
     color: #1d0a0a;
