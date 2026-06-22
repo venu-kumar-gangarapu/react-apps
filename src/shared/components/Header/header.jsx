@@ -19,7 +19,7 @@ function Header({ isLogin }) {
   };
   return (
     <>
-      <header>
+      <header className="header">
         <h1 onClick={()=>navigate('/')}>OrderNow</h1>
         <div className="right-section">
           <div className="search-container">

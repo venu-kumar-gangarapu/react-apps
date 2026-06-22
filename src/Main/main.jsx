@@ -247,8 +247,8 @@ const data = [
 export function Main() {
   return (
     <div className="main-container">
-      {/* <CarouselCard /> */}
-      {/* <Banner/> */}
+      <Banner/>
+      {/* <CarouselCard {...data[1]}/> */}
       <div className="grid">
         {data.map((data, index) => (
           <div className="card" key={index}>

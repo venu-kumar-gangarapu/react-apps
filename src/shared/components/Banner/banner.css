@@ -9,7 +9,8 @@
     #fcb69f
   );
   border-radius: 20px;
-  margin: 40px;
+  margin:0px 40px;
+  padding-top: 100px;
 }
 
 .banner-content {

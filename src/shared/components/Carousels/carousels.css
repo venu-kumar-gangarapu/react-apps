@@ -4,6 +4,7 @@
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0,0,0,.08);
   transition: .3s;
+  padding-top: 100px;
 }
 .img-food-card {
   width: 100%;
@@ -18,6 +19,12 @@
 
 .food-info {
   padding: 16px;
+}
+
+.food-details-grid{
+  display: grid;
+  grid-template-columns: repeat(6,200px);
+  margin: 0px 20px;
 }
 
 .food-details {
