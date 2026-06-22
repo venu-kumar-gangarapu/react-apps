@@ -10,11 +10,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 72px;
+  padding: 56px;
   background-color: fbfbff;
 }
 .card {
-  width: 300px;
+  width: 324px;
   border-radius: 16px;
   overflow: hidden;
   background: #fff;
@@ -63,16 +63,16 @@
 }
 
 .content {
-  padding: 12px;
+  padding:12px 24px 12px;
 }
 
-.header {
+.grid-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.header h3 {
+.grid-header h3 {
   font-size: 16px;
   margin: 0;
 }

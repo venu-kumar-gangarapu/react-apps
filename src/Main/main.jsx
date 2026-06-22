@@ -1,5 +1,6 @@
 import Banner from "../shared/components/Banner/banner";
 import CarouselCard from "../shared/components/Carousels/carousels";
+import Filter from "../shared/components/Filter/filter";
 import "./main.css";
 const data = [
   {
@@ -249,6 +250,7 @@ export function Main() {
     <div className="main-container">
       <Banner/>
       {/* <CarouselCard {...data[1]}/> */}
+      <Filter/>
       <div className="grid">
         {data.map((data, index) => (
           <div className="card" key={index}>
@@ -261,7 +263,7 @@ export function Main() {
             </div>
 
             <div className="content">
-              <div className="header">
+              <div className="grid-header">
                 <h3>{data.name}</h3>
                 <span className="price">₹{data.priceForTwo} for two</span>
               </div>

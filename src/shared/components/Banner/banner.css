@@ -2,15 +2,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 60px 80px;
+  padding:40px 72px;
   background: linear-gradient(
     135deg,
     #ffecd2,
     #fcb69f
   );
   border-radius: 20px;
-  margin:0px 40px;
-  padding-top: 100px;
+  margin:0px 56px;
 }
 
 .banner-content {
