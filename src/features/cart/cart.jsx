@@ -20,7 +20,7 @@ const cartItems = [
 export default function Cart() {
   return (
     <div className="cart-page">
-      <h2>My Cart</h2>  
+      {/* <h2>My Cart</h2>   */}
 
       <div className="cart-layout">
         <div className="cart-items">

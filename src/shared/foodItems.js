@@ -1,12 +1,4 @@
-import { useNavigate } from "react-router-dom";
-import Banner from "../shared/components/Banner/banner";
-import CarouselCard from "../shared/components/Carousels/carousels";
-import Filter from "../shared/components/Filter/filter";
-import "./main.css";
-import { initialState } from "../shared/hooks/filterReducer";
-import { useContext, useEffect, useState } from "react";
-import { CounterContext } from "../shared/contexts/filterContext";
-const dataGet = [
+const data =  [
   {
     "id": 1,
     "name": "Zen - The Park",
@@ -1094,54 +1086,4 @@ const dataGet = [
   }
 ];
 
-export function Main() {
-  const [data,setData] = useState(dataGet);
-  const {state }  = useContext(CounterContext);
-  let navigate = useNavigate();
-
-  useEffect(()=>{
-    setData(state?.viewFoodItems);
-    console.log(state);
-  },[state])
-  const goToItem = (index)=>{
-    console.log(index);
-    navigate("/food-item",{ state: data[index]?.menuData });
-  }
-
-  return (
-    <div className="main-container">
-      <Banner/>
-      {/* <CarouselCard {...data[1]}/> */}
-      <Filter/>
-      <div className="grid">
-        {data.map((data, index) => (
-          <div className="card" key={index} onClick={()=>goToItem(index)}>
-            <div className="image-container">
-              <img src={data.image} alt={data.name} />
-
-              {data.offer && <span className="offer">{data.offer}</span>}
-
-              {data.rating && <span className="rating">{data.rating} ★</span>}
-            </div>
-
-            <div className="content">
-              <div className="grid-header">
-                <h3>{data.name}</h3>
-                <span className="price">₹{data.priceForTwo} for two</span>
-              </div>
-
-              <p className="cuisines">{data.cuisines}</p>
-
-              <div className="footer">
-                <span>{data.location}</span>
-                <span>{data.distance}</span>
-              </div>
-
-              <p className="timing">Opens at {data.openingTime}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+export default data;

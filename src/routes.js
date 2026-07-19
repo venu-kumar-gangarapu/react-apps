@@ -12,7 +12,7 @@ export default function AppRotes() {
     return (
         <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="/about" element={<Card />} />
+            <Route path="/food-item" element={<Card />} />
             <Route path="/login" element={<Login />} />
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/home" element={<Main />} />

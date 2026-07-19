@@ -1,143 +1,167 @@
-// function Card(){
-//     return (
-//         <h1>card</h1>
-//     )
-// }
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import "./card.css";
 
-const menuData = {
-  "Newly Launched: Mutton Spread": {
-    count: 12,
-    sections: [
-      {
-        label: "MUTTON STARTERS",
-        items: [
-          { name: "Roasted Chilli Mutton [200 g]", desc: "Juicy mutton roasted with smoky chillies and aromatic spices, delivering a bold, fiery flavour that lingers on your palate." },
-          { name: "Conzy Crispy Mutton [200 g]", desc: "Tender mutton pieces, crispy on the outside and juicy inside, slow cooked with a signature blend of spices." },
-          { name: "Chilli Garlic Mutton [200 g]", desc: "Succulent mutton tossed in a bold chilli garlic sauce, packed with spicy, garlicky goodness in every bite." },
-        ],
-      },
-      {
-        label: "MUTTON MAIN COURSE",
-        items: [
-          { name: "Roasted Mutton Egg Fried Rice", desc: "Fragrant fried rice tossed with roasted mutton, fluffy eggs and savoury spices for a hearty main course." },
-          { name: "Chilli Garlic Mutton Noodles", desc: "Wok-tossed noodles with tender mutton strips in a fiery chilli garlic sauce." },
-          { name: "Mutton Thukpa", desc: "Traditional Tibetan noodle soup with slow-cooked mutton, vegetables and warming broth." },
-        ],
-      },
-    ],
-  },
-  "Combos And Meals": { count: 29, sections: [{ label: "COMBO DEALS", items: [{ name: "Combo Meal A", desc: "Rice + starter + drink at a special price." }, { name: "Family Feast", desc: "Serves 4 with assorted starters and mains." }] }] },
-  "Soups and Thukpa": { count: 17, sections: [{ label: "SOUPS", items: [{ name: "Hot & Sour Soup", desc: "Classic tangy and spicy broth with vegetables." }, { name: "Veg Manchow Soup", desc: "Crispy noodles atop a flavourful vegetable broth." }] }] },
-  "Starter Bites": { count: 41, sections: [{ label: "STARTERS", items: [{ name: "Chilli Chicken [200 g]", desc: "Crispy chicken tossed in a spicy Indo-Chinese sauce." }, { name: "Honey Chilli Potato", desc: "Crispy potato fingers glazed with honey and chilli." }] }] },
-  "Fried Rice": { count: 24, sections: [{ label: "FRIED RICE", items: [{ name: "Egg Fried Rice", desc: "Classic wok-tossed rice with eggs and spring onions." }, { name: "Chicken Fried Rice", desc: "Fragrant rice with tender chicken pieces." }] }] },
-  "Noodles": { count: 51, sections: [{ label: "NOODLES", items: [{ name: "Chicken Hakka Noodles", desc: "Stir-fried noodles with chicken in Hakka style sauce." }, { name: "Veg Chow Mein", desc: "Classic vegetable noodles tossed with soy and spices." }] }] },
-  "Side Dishes": { count: 63, sections: [{ label: "SIDES", items: [{ name: "Steamed Rice", desc: "Fluffy plain steamed rice." }, { name: "Garlic Bread", desc: "Toasted bread with garlic butter." }] }] },
-  "Momos: Evening Special": { count: 3, sections: [{ label: "MOMOS", items: [{ name: "Steamed Chicken Momo", desc: "Soft dumplings filled with minced chicken and herbs." }, { name: "Pan-Fried Veg Momo", desc: "Crispy bottomed dumplings with vegetable filling." }] }] },
-};
-
-const tabs = ["Overview", "Order Online", "Reviews", "Photos", "Menu"];
-
-const foodImages = [
-  "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&q=80",
-  "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=200&q=80",
-  "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=200&q=80",
-  "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=200&q=80",
+// Fallback gallery images used until real photo data is wired into the
+// route state. Swap these out once restaurant photo URLs exist.
+const galleryImages = [
+  "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&q=80",
+  "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=250&q=80",
+  "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=250&q=80",
+  "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=250&q=80",
 ];
 
-export default function Card() {
+const tabs = ["Overview", "Order Online", "Reviews", "Photos", "Menu", "Book a Table"];
+
+export default function OrangeLoungeCard() {
   const [activeTab, setActiveTab] = useState("Order Online");
-  const [activeMenu, setActiveMenu] = useState("Newly Launched: Mutton Spread");
+  const [activeMenu, setActiveMenu] = useState(null);
   const [search, setSearch] = useState("");
   const [expanded, setExpanded] = useState({});
 
-  const currentSection = menuData[activeMenu];
-  const filteredSections = currentSection?.sections.map((s) => ({
-    ...s,
-    items: s.items.filter(
-      (item) =>
-        search === "" ||
-        item.name.toLowerCase().includes(search.toLowerCase()) ||
-        item.desc.toLowerCase().includes(search.toLowerCase())
-    ),
-  })).filter((s) => s.items.length > 0);
+  // menuData holds only the category map (the `.menu` object) —
+  // never the {restaurantId, restaurantName, menu} wrapper.
+  const [menuData, setMenuData] = useState(null);
+  const [restaurant, setRestaurant] = useState(null);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const receivedData = location.state;
+    if (receivedData) {
+      const { restaurantId, restaurantName, menu, ...rest } = receivedData;
+
+      setMenuData(menu || {});
+      setRestaurant({
+        restaurantId,
+        name: restaurantName || "Restaurant",
+        cuisines: rest.cuisines || [],
+        address: rest.location || rest.address || "",
+        priceForTwo: rest.priceForTwo ?? null,
+        distance: rest.distance || "",
+        openingTime: rest.openingTime || "",
+        offer: rest.offer ?? null,
+        rating: rest.rating ?? null,
+        phone: rest.phone || "",
+      });
+
+      const firstCategory = menu ? Object.keys(menu)[0] : null;
+      setActiveMenu(firstCategory || null);
+
+      console.log("Data received successfully:", receivedData);
+    } else {
+      console.log("No state data passed or page was reloaded directly");
+    }
+  }, [location]);
+
+  // Guard: nothing to render yet (route state hasn't arrived, or the
+  // page was reloaded directly without navigation state).
+  if (!menuData || !restaurant) {
+    return (
+      <div
+        style={{
+          fontFamily: "'DM Sans', 'Segoe UI', sans-serif",
+          textAlign: "center",
+          color: "#aaa",
+          padding: 60,
+        }}
+      >
+        No menu data found. Please navigate here from the restaurant list.
+      </div>
+    );
+  }
+
+  const currentSection = activeMenu ? menuData[activeMenu] : null;
+  const filteredSections = currentSection?.sections
+    .map((s) => ({
+      ...s,
+      items: s.items.filter(
+        (item) =>
+          search === "" ||
+          item.name.toLowerCase().includes(search.toLowerCase()) ||
+          item.desc.toLowerCase().includes(search.toLowerCase())
+      ),
+    }))
+    .filter((s) => s.items.length > 0);
 
   const toggleExpand = (key) =>
     setExpanded((prev) => ({ ...prev, [key]: !prev[key] }));
 
   return (
     <div style={{ fontFamily: "'DM Sans', 'Segoe UI', sans-serif", background: "#fff", maxWidth: 900, margin: "0 auto", color: "#1a1a1a" }}>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap');
-        .cc-tab { cursor:pointer; padding:12px 16px; font-size:14px; font-weight:500; color:#666; border-bottom:2px solid transparent; transition:all .2s; white-space:nowrap; }
-        .cc-tab:hover { color:#e8472a; }
-        .cc-tab.active { color:#e8472a; border-bottom-color:#e8472a; }
-        .cc-menu-item { cursor:pointer; padding:10px 14px; font-size:13.5px; color:#444; border-radius:6px; transition:background .15s; line-height:1.4; }
-        .cc-menu-item:hover { background:#fff5f3; color:#e8472a; }
-        .cc-menu-item.active { background:#fff0ed; color:#e8472a; font-weight:600; border-right:3px solid #e8472a; }
-        .cc-dish-card { border-bottom:1px solid #f0ece8; padding:16px 0; display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
-        .cc-dish-card:last-child { border-bottom:none; }
-        .cc-add-btn { border:1px solid #e8472a; color:#e8472a; background:#fff; border-radius:6px; padding:6px 20px; font-size:13px; font-weight:600; cursor:pointer; transition:all .15s; }
-        .cc-add-btn:hover { background:#e8472a; color:#fff; }
-        .cc-badge { display:inline-flex; align-items:center; gap:4px; background:#3d9142; color:#fff; font-size:13px; font-weight:700; padding:3px 8px; border-radius:4px; }
-        .cc-read-more { color:#e8472a; cursor:pointer; font-size:13px; }
-        .cc-search { border:1px solid #ddd; border-radius:6px; padding:8px 14px; font-size:13px; width:220px; outline:none; font-family:inherit; }
-        .cc-search:focus { border-color:#e8472a; }
-        .cc-pill { display:inline-flex; align-items:center; gap:5px; border:1px solid #ddd; border-radius:20px; padding:4px 12px; font-size:12px; color:#555; cursor:pointer; transition:all .15s; }
-        .cc-pill:hover { border-color:#e8472a; color:#e8472a; }
-        .cc-img-grid { display:grid; grid-template-columns:1fr 140px; gap:4px; height:180px; border-radius:10px; overflow:hidden; }
-        .cc-img-right { display:grid; grid-template-rows:1fr 1fr; gap:4px; }
-        .cc-overlay { position:relative; cursor:pointer; }
-        .cc-overlay-label { position:absolute; inset:0; background:rgba(0,0,0,.45); display:flex; align-items:center; justify-content:center; color:#fff; font-size:13px; font-weight:600; }
-        .section-label { font-size:11px; font-weight:700; letter-spacing:.08em; color:#888; margin:20px 0 8px; padding-bottom:8px; border-bottom:1px solid #f0ece8; }
-      `}</style>
-
       {/* Header */}
       <div style={{ padding: "20px 20px 0" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 12 }}>
           <div>
-            <h1 style={{ fontSize: 26, fontWeight: 700, margin: "0 0 4px", letterSpacing: "-0.3px" }}>Crystal Chimney</h1>
-            <p style={{ fontSize: 13, color: "#666", margin: "0 0 6px" }}>Chinese, Sichuan, Asian, Momos</p>
-            <p style={{ fontSize: 13, color: "#666", margin: 0 }}>17, Chittaranjan Avenue, Chandni Chowk, Kolkata</p>
+            <h1 style={{ fontSize: 26, fontWeight: 700, margin: "0 0 4px", letterSpacing: "-0.3px" }}>
+              {restaurant.name}
+            </h1>
+            <p style={{ fontSize: 13, color: "#2a7de1", margin: "0 0 6px" }}>
+              {restaurant.cuisines.join(", ")}
+            </p>
+            <p style={{ fontSize: 13, color: "#666", margin: 0 }}>{restaurant.address}</p>
           </div>
           <div style={{ display: "flex", gap: 10 }}>
-            <div style={{ textAlign: "center", background: "#f9f9f7", border: "1px solid #e5e0d8", borderRadius: 8, padding: "8px 14px" }}>
-              <div><span className="cc-badge">4.4 ★</span></div>
-              <div style={{ fontSize: 11, color: "#888", marginTop: 4 }}>1,223<br />Dining Ratings</div>
-            </div>
-            <div style={{ textAlign: "center", background: "#f9f9f7", border: "1px solid #e5e0d8", borderRadius: 8, padding: "8px 14px" }}>
-              <div><span className="cc-badge" style={{ background: "#5b8c3e" }}>4.2 ★</span></div>
-              <div style={{ fontSize: 11, color: "#888", marginTop: 4 }}>7,319<br />Delivery Ratings</div>
-            </div>
+            {restaurant.rating ? (
+              <div style={{ textAlign: "center", background: "#f9f9f7", border: "1px solid #e5e0d8", borderRadius: 8, padding: "8px 14px" }}>
+                <span className="cc-badge">{restaurant.rating} ★</span>
+                <div style={{ fontSize: 11, color: "#888", marginTop: 4 }}>Dining Rating</div>
+              </div>
+            ) : restaurant.offer ? (
+              <div style={{ textAlign: "center", background: "#fff0ed", border: "1px solid #f5c9bd", borderRadius: 8, padding: "8px 14px" }}>
+                <span className="cc-badge" style={{ background: "#e8472a" }}>{restaurant.offer}</span>
+                <div style={{ fontSize: 11, color: "#888", marginTop: 4 }}>Just opened</div>
+              </div>
+            ) : (
+              <div style={{ textAlign: "center", background: "#f9f9f7", border: "1px solid #e5e0d8", borderRadius: 8, padding: "8px 14px" }}>
+                <span className="cc-badge">No ratings yet</span>
+              </div>
+            )}
           </div>
         </div>
 
-        {/* Meta row */}
-        <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 10, fontSize: 13, color: "#555", flexWrap: "wrap" }}>
-          <span style={{ color: "#c0392b", fontWeight: 500 }}>Closes in 53 minutes</span>
-          <span>·</span>
-          <span>12noon – 10pm (Today)</span>
-          <span>|</span>
-          <span>₹550 for two</span>
-          <span>|</span>
-          <span style={{ color: "#e8472a" }}>📞 +913322379584 +2 more</span>
+        {/* Info bar */}
+        <div className="cc-info-bar" style={{ marginTop: 10 }}>
+          {restaurant.openingTime && <span className="cc-closing">Opens {restaurant.openingTime}</span>}
+          {restaurant.priceForTwo != null && (
+            <>
+              <span>|</span>
+              <span>₹{Number(restaurant.priceForTwo).toLocaleString("en-IN")} for two</span>
+            </>
+          )}
+          {restaurant.distance && (
+            <>
+              <span>|</span>
+              <span>{restaurant.distance} away</span>
+            </>
+          )}
+          {restaurant.phone && (
+            <>
+              <span>|</span>
+              <span style={{ color: "#e8472a" }}>📞 {restaurant.phone}</span>
+            </>
+          )}
         </div>
 
         {/* Action pills */}
         <div style={{ display: "flex", gap: 8, marginTop: 12 }}>
-          {["Direction", "Share", "Reviews"].map((a) => (
+          {["Direction", "Share", "Reviews", "Book a table"].map((a) => (
             <button key={a} className="cc-pill">
-              {a === "Direction" ? "↗" : a === "Share" ? "⤴" : "★"} {a}
+              {a === "Direction" ? "↗" : a === "Share" ? "⤴" : a === "Reviews" ? "★" : "📅"} {a}
             </button>
           ))}
         </div>
 
         {/* Photo grid */}
         <div className="cc-img-grid" style={{ marginTop: 14 }}>
-          <img src={foodImages[0]} alt="food" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <img src={galleryImages[0]} alt={restaurant.name} />
           <div className="cc-img-right">
-            <img src={foodImages[1]} alt="food" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-            <img src={foodImages[2]} alt="food" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <img src={galleryImages[1]} alt="interior" />
+            <img src={galleryImages[2]} alt="dish" />
+          </div>
+          <div className="cc-overlay">
+            <img src={galleryImages[3]} alt="gallery" />
+            <div className="cc-overlay-label">View Gallery</div>
           </div>
         </div>
       </div>
@@ -145,7 +169,9 @@ export default function Card() {
       {/* Tabs */}
       <div style={{ display: "flex", borderBottom: "1px solid #eee", marginTop: 6, paddingLeft: 8, overflowX: "auto" }}>
         {tabs.map((t) => (
-          <div key={t} className={`cc-tab ${activeTab === t ? "active" : ""}`} onClick={() => setActiveTab(t)}>{t}</div>
+          <div key={t} className={`cc-tab ${activeTab === t ? "active" : ""}`} onClick={() => setActiveTab(t)}>
+            {t}
+          </div>
         ))}
       </div>
 
@@ -173,7 +199,7 @@ export default function Card() {
                 <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, color: "#888" }}>
                   <span>🔴 Live track your order</span>
                   <span>|</span>
-                  <span>⏱ 30 min</span>
+                  <span>⏱ 35 min</span>
                 </div>
               </div>
               <input
@@ -206,14 +232,15 @@ export default function Card() {
                           </span>
                         </p>
                       </div>
-                      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, minWidth: 80 }}>
-                        <div style={{ width: 72, height: 60, borderRadius: 8, overflow: "hidden", background: "#f5f0eb" }}>
+                      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, minWidth: 80, position: "relative" }}>
+                        <div style={{ width: 72, height: 60, borderRadius: 8, overflow: "hidden", background: "#f5f0eb", position: "relative" }}>
                           <img
-                            src={`https://images.unsplash.com/photo-${1567620905732 + i * 11111}?w=80&q=60`}
+                            src={item.img || `https://images.unsplash.com/photo-${1567620905732 + i * 11111}?w=160&q=70`}
                             alt={item.name}
                             style={{ width: "100%", height: "100%", objectFit: "cover" }}
                             onError={(e) => { e.target.style.display = "none"; }}
                           />
+                          <div className="cc-veg-dot" />
                         </div>
                         <button className="cc-add-btn">ADD</button>
                       </div>
@@ -238,4 +265,3 @@ export default function Card() {
     </div>
   );
 }
-
