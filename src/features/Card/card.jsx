@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./card.css";
+import { CartProvider } from "../../shared/contexts/cartContext";
 
 // Fallback gallery images used until real photo data is wired into the
 // route state. Swap these out once restaurant photo URLs exist.
@@ -18,6 +19,7 @@ export default function OrangeLoungeCard() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [search, setSearch] = useState("");
   const [expanded, setExpanded] = useState({});
+  const {dispatch} = useContext(CartProvider);
 
   // menuData holds only the category map (the `.menu` object) —
   // never the {restaurantId, restaurantName, menu} wrapper.
@@ -231,6 +233,7 @@ export default function OrangeLoungeCard() {
                             {" "}{isExpanded ? "show less" : "read more"}
                           </span>
                         </p>
+                        <p>₹ {item.price}</p>
                       </div>
                       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, minWidth: 80, position: "relative" }}>
                         <div style={{ width: 72, height: 60, borderRadius: 8, overflow: "hidden", background: "#f5f0eb", position: "relative" }}>
@@ -242,7 +245,7 @@ export default function OrangeLoungeCard() {
                           />
                           <div className="cc-veg-dot" />
                         </div>
-                        <button className="cc-add-btn">ADD</button>
+                        <button className="cc-add-btn" onClick={()=>dispatch({type:"Add to Cart",payload:section})}>ADD</button>
                       </div>
                     </div>
                   );

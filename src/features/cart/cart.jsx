@@ -1,30 +1,19 @@
+import { useContext, useEffect } from "react";
 import "./cart.css";
-
-const cartItems = [
-  {
-    id: 1,
-    name: "Chicken Biryani",
-    price: 299,
-    qty: 1,
-    image: "/assets/food/images1.jpg",
-  },
-  {
-    id: 2,
-    name: "Paneer Pizza",
-    price: 399,
-    qty: 1,
-    image: "/assets/food/images5.jpg",
-  },
-];
+import { CartProvider } from "../../shared/contexts/cartContext";
 
 export default function Cart() {
+  const {cart} = useContext(CartProvider);
+  useEffect(()=>{
+    console.log(cart);
+  },[cart])
   return (
     <div className="cart-page">
       {/* <h2>My Cart</h2>   */}
 
       <div className="cart-layout">
         <div className="cart-items">
-          {cartItems.map((item) => (
+          {cart?.cartItem.map((item) => (
             <div className="cart-card" key={item.id}>
               <img src={item.image} alt={item.name} />
 

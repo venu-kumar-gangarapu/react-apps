@@ -1,8 +1,12 @@
-import { createContext } from "react"
+import { createContext, useReducer } from "react"
+import { cartReducer, initialCart } from "../hooks/cartReducer";
 
-const CartProvider = createContext();
-export function CartContext(){
+export const CartProvider = createContext();
+export function CartContext({children}){
+    const [cart,dispatch] = useReducer(cartReducer,initialCart);
     return (
-        <CartProvider></CartProvider>
+        <CartProvider.Provider value={{cart,dispatch}}>
+            {children}
+        </CartProvider.Provider>
     )
 }

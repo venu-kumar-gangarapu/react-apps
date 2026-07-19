@@ -27,15 +27,18 @@ const data =  [
               "items": [
                 {
                   "name": "Lemongrass Chicken Skewers",
-                  "desc": "Grilled chicken marinated in lemongrass, ginger and lime, served with a tangy dipping sauce."
+                  "desc": "Grilled chicken marinated in lemongrass, ginger and lime, served with a tangy dipping sauce.",
+                  "price": 390
                 },
                 {
                   "name": "Crispy Salt & Pepper Squid",
-                  "desc": "Golden fried squid rings tossed with crushed pepper, garlic and spring onion."
+                  "desc": "Golden fried squid rings tossed with crushed pepper, garlic and spring onion.",
+                  "price": 140
                 },
                 {
                   "name": "Vietnamese Summer Rolls",
-                  "desc": "Fresh rice paper rolls with prawns, herbs and rice noodles, served with peanut dip."
+                  "desc": "Fresh rice paper rolls with prawns, herbs and rice noodles, served with peanut dip.",
+                  "price": 230
                 }
               ]
             },
@@ -44,15 +47,18 @@ const data =  [
               "items": [
                 {
                   "name": "Green Curry with Jasmine Rice",
-                  "desc": "Aromatic Thai green curry with chicken, bamboo shoots and basil in coconut milk."
+                  "desc": "Aromatic Thai green curry with chicken, bamboo shoots and basil in coconut milk.",
+                  "price": 250
                 },
                 {
                   "name": "Nasi Goreng",
-                  "desc": "Malaysian style fried rice with shrimp paste, egg and crispy shallots."
+                  "desc": "Malaysian style fried rice with shrimp paste, egg and crispy shallots.",
+                  "price": 400
                 },
                 {
                   "name": "Penang Char Kway Teow",
-                  "desc": "Wok-fried flat rice noodles with prawns, egg and bean sprouts in dark soy."
+                  "desc": "Wok-fried flat rice noodles with prawns, egg and bean sprouts in dark soy.",
+                  "price": 160
                 }
               ]
             }
@@ -88,11 +94,13 @@ const data =  [
               "items": [
                 {
                   "name": "Burrata with Heirloom Tomatoes",
-                  "desc": "Creamy burrata served over roasted heirloom tomatoes with basil oil."
+                  "desc": "Creamy burrata served over roasted heirloom tomatoes with basil oil.",
+                  "price": 380
                 },
                 {
                   "name": "Grilled Zucchini Carpaccio",
-                  "desc": "Thinly sliced zucchini with shaved parmesan, pine nuts and lemon dressing."
+                  "desc": "Thinly sliced zucchini with shaved parmesan, pine nuts and lemon dressing.",
+                  "price": 300
                 }
               ]
             },
@@ -101,15 +109,18 @@ const data =  [
               "items": [
                 {
                   "name": "Truffle Mushroom Risotto",
-                  "desc": "Slow-cooked arborio rice with wild mushrooms and a hint of black truffle oil."
+                  "desc": "Slow-cooked arborio rice with wild mushrooms and a hint of black truffle oil.",
+                  "price": 440
                 },
                 {
                   "name": "Lobster Ravioli",
-                  "desc": "House-made ravioli filled with lobster in a light saffron cream sauce."
+                  "desc": "House-made ravioli filled with lobster in a light saffron cream sauce.",
+                  "price": 160
                 },
                 {
                   "name": "Penne Arrabbiata",
-                  "desc": "Penne tossed in a fiery tomato and chilli sauce with fresh garlic."
+                  "desc": "Penne tossed in a fiery tomato and chilli sauce with fresh garlic.",
+                  "price": 250
                 }
               ]
             }
@@ -144,15 +155,18 @@ const data =  [
               "items": [
                 {
                   "name": "Beer Battered Fish Fingers",
-                  "desc": "Crispy beer-battered fish strips served with tartar sauce and lemon wedge."
+                  "desc": "Crispy beer-battered fish strips served with tartar sauce and lemon wedge.",
+                  "price": 220
                 },
                 {
                   "name": "Loaded Nachos",
-                  "desc": "Tortilla chips piled with jalapenos, cheese sauce, salsa and sour cream."
+                  "desc": "Tortilla chips piled with jalapenos, cheese sauce, salsa and sour cream.",
+                  "price": 380
                 },
                 {
                   "name": "Chicken Popcorn",
-                  "desc": "Bite sized crispy fried chicken tossed in a smoky seasoning."
+                  "desc": "Bite sized crispy fried chicken tossed in a smoky seasoning.",
+                  "price": 330
                 }
               ]
             },
@@ -161,11 +175,13 @@ const data =  [
               "items": [
                 {
                   "name": "Dragon Chicken",
-                  "desc": "Crispy chicken tossed in a sweet, spicy Szechuan style glaze topped with cashews."
+                  "desc": "Crispy chicken tossed in a sweet, spicy Szechuan style glaze topped with cashews.",
+                  "price": 120
                 },
                 {
                   "name": "Singapore Rice Noodles",
-                  "desc": "Curry-spiced rice vermicelli stir-fried with vegetables and egg."
+                  "desc": "Curry-spiced rice vermicelli stir-fried with vegetables and egg.",
+                  "price": 430
                 }
               ]
             }
@@ -200,15 +216,18 @@ const data =  [
               "items": [
                 {
                   "name": "Tandoori Malai Chicken",
-                  "desc": "Chicken marinated in cream, cheese and mild spices, roasted in the clay oven."
+                  "desc": "Chicken marinated in cream, cheese and mild spices, roasted in the clay oven.",
+                  "price": 330
                 },
                 {
                   "name": "Amritsari Fish Tikka",
-                  "desc": "Chunks of fish marinated in carom seed and gram flour, char-grilled."
+                  "desc": "Chunks of fish marinated in carom seed and gram flour, char-grilled.",
+                  "price": 400
                 },
                 {
                   "name": "Peshawari Mutton Chaap",
-                  "desc": "Bone-in mutton ribs marinated overnight in a rich spiced yogurt."
+                  "desc": "Bone-in mutton ribs marinated overnight in a rich spiced yogurt.",
+                  "price": 290
                 }
               ]
             },
@@ -217,11 +236,13 @@ const data =  [
               "items": [
                 {
                   "name": "Schezwan Chicken Dry",
-                  "desc": "Wok tossed chicken in a fiery schezwan sauce with bell peppers."
+                  "desc": "Wok tossed chicken in a fiery schezwan sauce with bell peppers.",
+                  "price": 300
                 },
                 {
                   "name": "Vegetable American Chopsuey",
-                  "desc": "Crispy fried noodles topped with a sweet-sour mixed vegetable gravy."
+                  "desc": "Crispy fried noodles topped with a sweet-sour mixed vegetable gravy.",
+                  "price": 130
                 }
               ]
             }
@@ -257,11 +278,13 @@ const data =  [
               "items": [
                 {
                   "name": "Classic Eggs Benedict",
-                  "desc": "Poached eggs on toasted muffins with hollandaise sauce and grilled ham."
+                  "desc": "Poached eggs on toasted muffins with hollandaise sauce and grilled ham.",
+                  "price": 290
                 },
                 {
                   "name": "Belgian Waffles with Maple Syrup",
-                  "desc": "Fluffy waffles served warm with butter and maple syrup."
+                  "desc": "Fluffy waffles served warm with butter and maple syrup.",
+                  "price": 320
                 }
               ]
             },
@@ -270,15 +293,18 @@ const data =  [
               "items": [
                 {
                   "name": "Wood Fired Margherita Pizza",
-                  "desc": "Thin crust pizza topped with fresh mozzarella, basil and tomato sauce."
+                  "desc": "Thin crust pizza topped with fresh mozzarella, basil and tomato sauce.",
+                  "price": 180
                 },
                 {
                   "name": "Chicken Manchurian Gravy",
-                  "desc": "Deep-fried chicken balls simmered in a tangy soy-ginger gravy."
+                  "desc": "Deep-fried chicken balls simmered in a tangy soy-ginger gravy.",
+                  "price": 120
                 },
                 {
                   "name": "Baked Mac and Cheese",
-                  "desc": "Creamy macaroni baked with a blend of cheddar and mozzarella cheese."
+                  "desc": "Creamy macaroni baked with a blend of cheddar and mozzarella cheese.",
+                  "price": 150
                 }
               ]
             }
@@ -313,11 +339,13 @@ const data =  [
               "items": [
                 {
                   "name": "Chicken Reshmi Kebab",
-                  "desc": "Silky smooth chicken kebabs marinated in cream and cashew paste."
+                  "desc": "Silky smooth chicken kebabs marinated in cream and cashew paste.",
+                  "price": 270
                 },
                 {
                   "name": "Chilli Paneer Dry",
-                  "desc": "Cottage cheese cubes tossed with onions, capsicum in a spicy soy glaze."
+                  "desc": "Cottage cheese cubes tossed with onions, capsicum in a spicy soy glaze.",
+                  "price": 440
                 }
               ]
             },
@@ -326,11 +354,13 @@ const data =  [
               "items": [
                 {
                   "name": "Kolkata Style Kosha Mangsho",
-                  "desc": "Slow-cooked mutton curry in the traditional Bengali style with mustard oil."
+                  "desc": "Slow-cooked mutton curry in the traditional Bengali style with mustard oil.",
+                  "price": 350
                 },
                 {
                   "name": "Chicken Chilli Garlic Noodles",
-                  "desc": "Stir-fried noodles with shredded chicken in a bold garlic chilli sauce."
+                  "desc": "Stir-fried noodles with shredded chicken in a bold garlic chilli sauce.",
+                  "price": 420
                 }
               ]
             }
@@ -365,11 +395,13 @@ const data =  [
               "items": [
                 {
                   "name": "Dal Tadka",
-                  "desc": "Yellow lentils tempered with cumin, garlic and dried red chillies."
+                  "desc": "Yellow lentils tempered with cumin, garlic and dried red chillies.",
+                  "price": 220
                 },
                 {
                   "name": "Kadai Paneer",
-                  "desc": "Cottage cheese and bell peppers cooked in a coarsely ground spice masala."
+                  "desc": "Cottage cheese and bell peppers cooked in a coarsely ground spice masala.",
+                  "price": 240
                 }
               ]
             },
@@ -378,11 +410,13 @@ const data =  [
               "items": [
                 {
                   "name": "Lachha Paratha",
-                  "desc": "Multi-layered flaky whole wheat flatbread cooked on a griddle."
+                  "desc": "Multi-layered flaky whole wheat flatbread cooked on a griddle.",
+                  "price": 360
                 },
                 {
                   "name": "Jeera Rice",
-                  "desc": "Basmati rice tempered with roasted cumin seeds and ghee."
+                  "desc": "Basmati rice tempered with roasted cumin seeds and ghee.",
+                  "price": 210
                 }
               ]
             }
@@ -418,11 +452,13 @@ const data =  [
               "items": [
                 {
                   "name": "Peri Peri Loaded Fries",
-                  "desc": "Crispy fries tossed in peri peri seasoning, topped with cheese sauce."
+                  "desc": "Crispy fries tossed in peri peri seasoning, topped with cheese sauce.",
+                  "price": 350
                 },
                 {
                   "name": "Grilled Chicken Sliders",
-                  "desc": "Mini burger buns with grilled chicken patty, lettuce and chipotle mayo."
+                  "desc": "Mini burger buns with grilled chicken patty, lettuce and chipotle mayo.",
+                  "price": 210
                 }
               ]
             },
@@ -431,15 +467,18 @@ const data =  [
               "items": [
                 {
                   "name": "Rajma Chawal",
-                  "desc": "Red kidney beans slow-cooked in a tomato gravy, served with steamed rice."
+                  "desc": "Red kidney beans slow-cooked in a tomato gravy, served with steamed rice.",
+                  "price": 170
                 },
                 {
                   "name": "Aloo Gobi Masala",
-                  "desc": "Potatoes and cauliflower sauteed with turmeric, cumin and ginger."
+                  "desc": "Potatoes and cauliflower sauteed with turmeric, cumin and ginger.",
+                  "price": 230
                 },
                 {
                   "name": "Butter Naan",
-                  "desc": "Soft leavened bread brushed with melted butter, baked in the tandoor."
+                  "desc": "Soft leavened bread brushed with melted butter, baked in the tandoor.",
+                  "price": 120
                 }
               ]
             }
@@ -475,11 +514,13 @@ const data =  [
               "items": [
                 {
                   "name": "Legendary Classic Burger",
-                  "desc": "Beef patty topped with lettuce, tomato, cheddar and signature rock sauce."
+                  "desc": "Beef patty topped with lettuce, tomato, cheddar and signature rock sauce.",
+                  "price": 430
                 },
                 {
                   "name": "Smokehouse BBQ Burger",
-                  "desc": "Grilled patty layered with crispy onions and smoky barbecue glaze."
+                  "desc": "Grilled patty layered with crispy onions and smoky barbecue glaze.",
+                  "price": 330
                 }
               ]
             },
@@ -488,11 +529,13 @@ const data =  [
               "items": [
                 {
                   "name": "Cajun Chicken Alfredo Pasta",
-                  "desc": "Fettuccine tossed in creamy alfredo sauce with blackened cajun chicken."
+                  "desc": "Fettuccine tossed in creamy alfredo sauce with blackened cajun chicken.",
+                  "price": 160
                 },
                 {
                   "name": "Twisted Mac n Cheese",
-                  "desc": "Rotini pasta baked with a three cheese blend and toasted breadcrumbs."
+                  "desc": "Rotini pasta baked with a three cheese blend and toasted breadcrumbs.",
+                  "price": 260
                 }
               ]
             }
@@ -527,15 +570,18 @@ const data =  [
               "items": [
                 {
                   "name": "Kali Mirch Chicken Tikka",
-                  "desc": "Black pepper marinated chicken cubes grilled fresh on the live counter."
+                  "desc": "Black pepper marinated chicken cubes grilled fresh on the live counter.",
+                  "price": 390
                 },
                 {
                   "name": "Mutton Galouti Kebab",
-                  "desc": "Melt-in-mouth minced mutton kebabs flavoured with a secret spice blend."
+                  "desc": "Melt-in-mouth minced mutton kebabs flavoured with a secret spice blend.",
+                  "price": 180
                 },
                 {
                   "name": "Tandoori Prawns",
-                  "desc": "Jumbo prawns marinated in tandoori spices and cooked over open flame."
+                  "desc": "Jumbo prawns marinated in tandoori spices and cooked over open flame.",
+                  "price": 180
                 }
               ]
             },
@@ -544,15 +590,18 @@ const data =  [
               "items": [
                 {
                   "name": "Mutton Rogan Josh",
-                  "desc": "Kashmiri style mutton curry slow-cooked with aromatic whole spices."
+                  "desc": "Kashmiri style mutton curry slow-cooked with aromatic whole spices.",
+                  "price": 130
                 },
                 {
                   "name": "Live Dosa Counter",
-                  "desc": "Freshly made crispy dosas served hot with sambhar and chutneys."
+                  "desc": "Freshly made crispy dosas served hot with sambhar and chutneys.",
+                  "price": 280
                 },
                 {
                   "name": "Gulab Jamun with Ice Cream",
-                  "desc": "Warm gulab jamuns served alongside a scoop of vanilla ice cream."
+                  "desc": "Warm gulab jamuns served alongside a scoop of vanilla ice cream.",
+                  "price": 440
                 }
               ]
             }
@@ -587,11 +636,13 @@ const data =  [
               "items": [
                 {
                   "name": "Kolkata Mutton Biryani",
-                  "desc": "Fragrant basmati rice layered with slow-cooked mutton, potato and boiled egg."
+                  "desc": "Fragrant basmati rice layered with slow-cooked mutton, potato and boiled egg.",
+                  "price": 280
                 },
                 {
                   "name": "Chicken Chaap Biryani",
-                  "desc": "Aromatic biryani served alongside a rich, creamy chicken chaap curry."
+                  "desc": "Aromatic biryani served alongside a rich, creamy chicken chaap curry.",
+                  "price": 440
                 }
               ]
             },
@@ -600,15 +651,18 @@ const data =  [
               "items": [
                 {
                   "name": "Mutton Rezala",
-                  "desc": "A delicate white gravy curry made with yogurt, cream and whole spices."
+                  "desc": "A delicate white gravy curry made with yogurt, cream and whole spices.",
+                  "price": 220
                 },
                 {
                   "name": "Beguni",
-                  "desc": "Crispy gram flour battered eggplant fritters, a classic Bengali starter."
+                  "desc": "Crispy gram flour battered eggplant fritters, a classic Bengali starter.",
+                  "price": 380
                 },
                 {
                   "name": "Mishti Doi",
-                  "desc": "Traditional sweetened caramelised yogurt dessert served chilled."
+                  "desc": "Traditional sweetened caramelised yogurt dessert served chilled.",
+                  "price": 300
                 }
               ]
             }
@@ -643,11 +697,13 @@ const data =  [
               "items": [
                 {
                   "name": "Cream of Mushroom Soup",
-                  "desc": "Velvety mushroom soup finished with a swirl of fresh cream."
+                  "desc": "Velvety mushroom soup finished with a swirl of fresh cream.",
+                  "price": 230
                 },
                 {
                   "name": "Classic Caesar Salad",
-                  "desc": "Crisp romaine lettuce with parmesan shavings, croutons and caesar dressing."
+                  "desc": "Crisp romaine lettuce with parmesan shavings, croutons and caesar dressing.",
+                  "price": 250
                 }
               ]
             },
@@ -656,11 +712,13 @@ const data =  [
               "items": [
                 {
                   "name": "Chicken a la Kiev",
-                  "desc": "Breaded chicken breast stuffed with garlic butter, fried till golden."
+                  "desc": "Breaded chicken breast stuffed with garlic butter, fried till golden.",
+                  "price": 400
                 },
                 {
                   "name": "Devilled Crab",
-                  "desc": "A vintage Kolkata classic of spiced crab meat baked in its shell."
+                  "desc": "A vintage Kolkata classic of spiced crab meat baked in its shell.",
+                  "price": 260
                 }
               ]
             }
@@ -695,11 +753,13 @@ const data =  [
               "items": [
                 {
                   "name": "Chicken Steam Momo",
-                  "desc": "Soft dumplings filled with minced chicken, ginger and spring onion."
+                  "desc": "Soft dumplings filled with minced chicken, ginger and spring onion.",
+                  "price": 270
                 },
                 {
                   "name": "Paneer Steam Momo",
-                  "desc": "Steamed dumplings stuffed with grated cottage cheese and herbs."
+                  "desc": "Steamed dumplings stuffed with grated cottage cheese and herbs.",
+                  "price": 350
                 }
               ]
             },
@@ -708,11 +768,13 @@ const data =  [
               "items": [
                 {
                   "name": "Peri Peri Pan Fried Momo",
-                  "desc": "Crispy bottomed momos tossed in a tangy peri peri seasoning."
+                  "desc": "Crispy bottomed momos tossed in a tangy peri peri seasoning.",
+                  "price": 230
                 },
                 {
                   "name": "Tandoori Chicken Momo",
-                  "desc": "Steamed momos char-grilled in tandoori marinade for a smoky finish."
+                  "desc": "Steamed momos char-grilled in tandoori marinade for a smoky finish.",
+                  "price": 130
                 }
               ]
             }
@@ -747,11 +809,13 @@ const data =  [
               "items": [
                 {
                   "name": "Original Recipe Chicken Bucket",
-                  "desc": "Crispy fried chicken pieces made with the classic secret spice blend."
+                  "desc": "Crispy fried chicken pieces made with the classic secret spice blend.",
+                  "price": 120
                 },
                 {
                   "name": "Hot & Crispy Chicken",
-                  "desc": "Extra spicy crunchy fried chicken with a fiery coating."
+                  "desc": "Extra spicy crunchy fried chicken with a fiery coating.",
+                  "price": 320
                 }
               ]
             },
@@ -760,11 +824,13 @@ const data =  [
               "items": [
                 {
                   "name": "Zinger Burger",
-                  "desc": "Spicy crispy chicken fillet burger with lettuce and mayo."
+                  "desc": "Spicy crispy chicken fillet burger with lettuce and mayo.",
+                  "price": 330
                 },
                 {
                   "name": "Popcorn Chicken Box",
-                  "desc": "Bite sized crunchy chicken pieces tossed in seasoning."
+                  "desc": "Bite sized crunchy chicken pieces tossed in seasoning.",
+                  "price": 450
                 }
               ]
             }
@@ -799,11 +865,13 @@ const data =  [
               "items": [
                 {
                   "name": "Peppy Paneer Pizza",
-                  "desc": "Loaded with juicy paneer, capsicum and red pepper on a cheesy base."
+                  "desc": "Loaded with juicy paneer, capsicum and red pepper on a cheesy base.",
+                  "price": 300
                 },
                 {
                   "name": "Chicken Pepperoni Pizza",
-                  "desc": "Classic pepperoni slices layered over melted mozzarella cheese."
+                  "desc": "Classic pepperoni slices layered over melted mozzarella cheese.",
+                  "price": 230
                 }
               ]
             },
@@ -812,11 +880,13 @@ const data =  [
               "items": [
                 {
                   "name": "Cheesy Garlic Breadsticks",
-                  "desc": "Warm breadsticks topped with garlic butter and molten cheese."
+                  "desc": "Warm breadsticks topped with garlic butter and molten cheese.",
+                  "price": 420
                 },
                 {
                   "name": "Choco Lava Cake",
-                  "desc": "Warm chocolate cake with a gooey molten centre."
+                  "desc": "Warm chocolate cake with a gooey molten centre.",
+                  "price": 170
                 }
               ]
             }
@@ -850,11 +920,13 @@ const data =  [
               "items": [
                 {
                   "name": "Crystal Prawn Dumplings",
-                  "desc": "Steamed translucent dumplings filled with fresh prawn and chives."
+                  "desc": "Steamed translucent dumplings filled with fresh prawn and chives.",
+                  "price": 170
                 },
                 {
                   "name": "Crispy Lotus Stem",
-                  "desc": "Thinly sliced lotus root, fried crisp and tossed in a chilli glaze."
+                  "desc": "Thinly sliced lotus root, fried crisp and tossed in a chilli glaze.",
+                  "price": 330
                 }
               ]
             },
@@ -863,11 +935,13 @@ const data =  [
               "items": [
                 {
                   "name": "Peking Style Duck",
-                  "desc": "Crispy roasted duck served with pancakes, spring onion and hoisin sauce."
+                  "desc": "Crispy roasted duck served with pancakes, spring onion and hoisin sauce.",
+                  "price": 150
                 },
                 {
                   "name": "Sizzling Black Pepper Beef",
-                  "desc": "Tender beef strips stir-fried in a bold black pepper sauce, served sizzling."
+                  "desc": "Tender beef strips stir-fried in a bold black pepper sauce, served sizzling.",
+                  "price": 370
                 }
               ]
             }
@@ -902,11 +976,13 @@ const data =  [
               "items": [
                 {
                   "name": "Death by Chocolate Sundae",
-                  "desc": "Layers of chocolate ice cream, brownie chunks and hot fudge sauce."
+                  "desc": "Layers of chocolate ice cream, brownie chunks and hot fudge sauce.",
+                  "price": 190
                 },
                 {
                   "name": "Mango Tango Sundae",
-                  "desc": "Fresh mango scoops topped with mango sauce and whipped cream."
+                  "desc": "Fresh mango scoops topped with mango sauce and whipped cream.",
+                  "price": 140
                 }
               ]
             },
@@ -915,11 +991,13 @@ const data =  [
               "items": [
                 {
                   "name": "Oreo Overload Shake",
-                  "desc": "Thick vanilla shake blended with crushed Oreo cookies."
+                  "desc": "Thick vanilla shake blended with crushed Oreo cookies.",
+                  "price": 330
                 },
                 {
                   "name": "Family Pack Tub - Butterscotch",
-                  "desc": "A generous tub of classic butterscotch ice cream to share at home."
+                  "desc": "A generous tub of classic butterscotch ice cream to share at home.",
+                  "price": 320
                 }
               ]
             }
@@ -954,11 +1032,13 @@ const data =  [
               "items": [
                 {
                   "name": "Caramel Macchiato",
-                  "desc": "Espresso layered with steamed milk and a drizzle of caramel syrup."
+                  "desc": "Espresso layered with steamed milk and a drizzle of caramel syrup.",
+                  "price": 350
                 },
                 {
                   "name": "Hazelnut Cold Brew",
-                  "desc": "Smooth cold brewed coffee infused with roasted hazelnut flavour."
+                  "desc": "Smooth cold brewed coffee infused with roasted hazelnut flavour.",
+                  "price": 180
                 }
               ]
             },
@@ -967,11 +1047,13 @@ const data =  [
               "items": [
                 {
                   "name": "Veg Grilled Sandwich",
-                  "desc": "Toasted sandwich stuffed with fresh vegetables and mint chutney."
+                  "desc": "Toasted sandwich stuffed with fresh vegetables and mint chutney.",
+                  "price": 330
                 },
                 {
                   "name": "Chocolate Chip Muffin",
-                  "desc": "Soft baked muffin loaded with chocolate chips."
+                  "desc": "Soft baked muffin loaded with chocolate chips.",
+                  "price": 170
                 }
               ]
             }
@@ -1006,11 +1088,13 @@ const data =  [
               "items": [
                 {
                   "name": "Raj Kachori",
-                  "desc": "Crisp puffed shell filled with lentils, yogurt, chutneys and sev."
+                  "desc": "Crisp puffed shell filled with lentils, yogurt, chutneys and sev.",
+                  "price": 130
                 },
                 {
                   "name": "Aloo Tikki Chaat",
-                  "desc": "Spiced potato patties topped with tangy tamarind and mint chutney."
+                  "desc": "Spiced potato patties topped with tangy tamarind and mint chutney.",
+                  "price": 410
                 }
               ]
             },
@@ -1019,11 +1103,13 @@ const data =  [
               "items": [
                 {
                   "name": "Kaju Katli",
-                  "desc": "Diamond shaped cashew fudge with a delicate silver leaf topping."
+                  "desc": "Diamond shaped cashew fudge with a delicate silver leaf topping.",
+                  "price": 380
                 },
                 {
                   "name": "Motichoor Ladoo",
-                  "desc": "Fine gram flour pearls bound together with sugar syrup and ghee."
+                  "desc": "Fine gram flour pearls bound together with sugar syrup and ghee.",
+                  "price": 140
                 }
               ]
             }
@@ -1058,11 +1144,13 @@ const data =  [
               "items": [
                 {
                   "name": "Chicken Teriyaki Sub",
-                  "desc": "Grilled chicken glazed in teriyaki sauce, packed with fresh veggies."
+                  "desc": "Grilled chicken glazed in teriyaki sauce, packed with fresh veggies.",
+                  "price": 290
                 },
                 {
                   "name": "Veggie Delite Sub",
-                  "desc": "A loaded sub with fresh lettuce, tomato, cucumber, olives and peppers."
+                  "desc": "A loaded sub with fresh lettuce, tomato, cucumber, olives and peppers.",
+                  "price": 390
                 }
               ]
             },
@@ -1071,11 +1159,13 @@ const data =  [
               "items": [
                 {
                   "name": "Protein Chicken Salad Bowl",
-                  "desc": "Grilled chicken over fresh greens with a light vinaigrette dressing."
+                  "desc": "Grilled chicken over fresh greens with a light vinaigrette dressing.",
+                  "price": 150
                 },
                 {
                   "name": "Baked Jalapeno Cheese Bites",
-                  "desc": "Crispy baked bites stuffed with jalapeno and melted cheese."
+                  "desc": "Crispy baked bites stuffed with jalapeno and melted cheese.",
+                  "price": 220
                 }
               ]
             }
@@ -1084,6 +1174,6 @@ const data =  [
       }
     }
   }
-];
+]
 
 export default data;

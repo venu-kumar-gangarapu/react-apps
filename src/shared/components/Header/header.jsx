@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {useNavigate} from 'react-router-dom';
 import "./header.css";
+import { CartProvider } from "../../contexts/cartContext";
 
 function Header({ isLogin }) {
   const navigate = useNavigate();
+  const {cart} = useContext(CartProvider);
   // const [openLogin, setOpenLogin] = useState(false);
   const [search, setSearch] = useState("");
   function searchSubmit(event){
@@ -17,6 +19,13 @@ function Header({ isLogin }) {
   const handleSignUp = () => {
     navigate("/sign-up");
   };
+  const goToCart = () => {
+    navigate("/cart");
+  };
+
+  useEffect(()=>{
+    console.log(cart.cartSize);
+      },[cart])
   return (
     <>
       <header className="header">
@@ -45,6 +54,7 @@ function Header({ isLogin }) {
           </div>
           <button className="login" onClick={()=>handleLogin()}>Login</button>
           <button className="signup" onClick={()=>handleSignUp()}>Sign Up</button>
+          {cart?.cartSize}<img className="img-cart" src="/assets/food/cart-svgrepo-com.svg" alt="cart" onClick={()=>goToCart()}/>
         </div>
       </header>
     </>

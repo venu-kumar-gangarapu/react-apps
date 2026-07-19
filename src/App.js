@@ -1,15 +1,18 @@
 import "./App.css";
 import AppRotes from "./routes";
 import Header from "./shared/components/Header/header";
+import { CartContext } from "./shared/contexts/cartContext";
 import { FilterContext } from "./shared/contexts/filterContext";
 
 function App() {
   return (
-    <FilterContext>
-      <Header isLogin="true" />
-        <AppRotes/>
-      <Footer />
-    </FilterContext>
+    <CartContext>
+      <FilterContext>
+        <Header isLogin="true" />
+        <AppRotes />
+        <Footer />
+      </FilterContext>
+    </CartContext>
   );
 }
 
