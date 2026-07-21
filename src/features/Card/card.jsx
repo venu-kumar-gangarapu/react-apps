@@ -245,7 +245,7 @@ export default function OrangeLoungeCard() {
                           />
                           <div className="cc-veg-dot" />
                         </div>
-                        <button className="cc-add-btn" onClick={()=>dispatch({type:"Add to Cart",payload:section})}>ADD</button>
+                        <button className="cc-add-btn" onClick={()=>{dispatch({type:"Add to Cart",payload:item}); dispatch({type:'total cart value'});}}>ADD</button>
                       </div>
                     </div>
                   );

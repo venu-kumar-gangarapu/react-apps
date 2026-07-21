@@ -1,16 +1,16 @@
 import { useContext, useEffect, useState } from "react";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import "./header.css";
 import { CartProvider } from "../../contexts/cartContext";
 
 function Header({ isLogin }) {
   const navigate = useNavigate();
-  const {cart} = useContext(CartProvider);
+  const { cart } = useContext(CartProvider);
   // const [openLogin, setOpenLogin] = useState(false);
   const [search, setSearch] = useState("");
-  function searchSubmit(event){
+  function searchSubmit(event) {
     event.preventDefault();
-    console.log('form',search);
+    console.log("form", search);
     //controlled outputs hat controls the state of the form
   }
   const handleLogin = () => {
@@ -23,13 +23,13 @@ function Header({ isLogin }) {
     navigate("/cart");
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log(cart.cartSize);
-      },[cart])
+  }, [cart]);
   return (
     <>
       <header className="header">
-        <h1 onClick={()=>navigate('/')}>OrderNow</h1>
+        <h1 onClick={() => navigate("/")}>OrderNow</h1>
         <div className="right-section">
           <div className="search-container">
             <div className="location">
@@ -42,7 +42,9 @@ function Header({ isLogin }) {
 
             <div className="search-box">
               <form className="d-flex" onSubmit={searchSubmit}>
-                <span className="search-icon"><button type="submit">🔍</button></span>
+                <span className="search-icon">
+                  <button type="submit">🔍</button>
+                </span>
                 <input
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
@@ -52,9 +54,27 @@ function Header({ isLogin }) {
               </form>
             </div>
           </div>
-          <button className="login" onClick={()=>handleLogin()}>Login</button>
-          <button className="signup" onClick={()=>handleSignUp()}>Sign Up</button>
-          {cart?.cartSize}<img className="img-cart" src="/assets/food/cart-svgrepo-com.svg" alt="cart" onClick={()=>goToCart()}/>
+          <button className="login" onClick={() => handleLogin()}>
+            Login
+          </button>
+          <button className="signup" onClick={() => handleSignUp()}>
+            Sign Up
+          </button>
+          <div className="header-cart d-flex align-items-center">
+            <div>
+              {/* <img
+                className="img-cart"
+                src="/assets/food/cart-svgrepo-com.svg"
+                alt="cart"
+                onClick={() => goToCart()}
+                />
+                <p>Cart</p> */}
+              <button className="signup pe-1" onClick={() => goToCart()}>
+                Cart
+              </button>
+            </div>
+            <p className="mb-0">(<strong>{cart?.cartSize}</strong>)</p>
+          </div>
         </div>
       </header>
     </>
