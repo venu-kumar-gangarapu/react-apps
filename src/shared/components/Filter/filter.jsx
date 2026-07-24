@@ -1,12 +1,12 @@
 import "./filter.css";
 import { initialState } from "../../hooks/filterReducer";
 import { useContext } from "react";
-import { CounterContext } from "../../contexts/filterContext";
+import { ResturantContext } from "../../contexts/filterContext";
 
 export default function Filter() {
-  const { dispatch } = useContext(CounterContext);
+  const { dispatch } = useContext(ResturantContext);
   return (
-    <div className="filters-container mt-4 m-116">
+    <div className="filters-container mt-4">
       <button className="filter-btn">
         <span className="icon">⚙</span>
         Filters

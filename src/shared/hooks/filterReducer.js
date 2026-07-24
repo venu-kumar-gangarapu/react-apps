@@ -18,10 +18,16 @@ function filterReducer(state,action){
             return {}
         case "servesAlcohol":
             return {}
+        case "filter Collection" :
+            return {...state, viewFoodItems:getFilterCollection(state)}
         default:
             return initialState
     }
 
+}
+
+function getFilterCollection(state){
+    return state?.viewFoodItems;
 }
 
 export {filterReducer,initialState}

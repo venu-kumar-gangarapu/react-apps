@@ -1,5 +1,7 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import "./carousels.css";
+import { useNavigate } from "react-router-dom";
+import { ResturantContext } from "../../contexts/filterContext";
 
 export default function CarouselCard({ image, name, price, rating }) {
   const categories = [
@@ -25,7 +27,8 @@ export default function CarouselCard({ image, name, price, rating }) {
   { id: 20, name: "Jalebi", image: "/assets/categories/jalebi.png" }
 ];
   const sliderRef = useRef();
-
+  const navigate = useNavigate();
+  const {state,dispatch}=useContext(ResturantContext);
   const scrollLeft = () => {
     sliderRef.current.scrollBy({
       left: -400,
@@ -39,6 +42,12 @@ export default function CarouselCard({ image, name, price, rating }) {
       behavior: "smooth",
     });
   };
+
+  const navigateToMenu =(name)=>{
+    const data = state ?? []; 
+    dispatch({type : "filter Collection"})
+    navigate("/collections",{state:{data:data.viewFoodItems,name}})
+  }
 
   return (
     <section className="category-section">
@@ -55,7 +64,7 @@ export default function CarouselCard({ image, name, price, rating }) {
       <div className="category-slider" ref={sliderRef}>
 
         {categories.map((item) => (
-          <div className="category-card" key={item.id}>
+          <div className="category-card" key={item.id} onClick={()=>navigateToMenu(item.name)}>
 
             <img
               src={item.image}
