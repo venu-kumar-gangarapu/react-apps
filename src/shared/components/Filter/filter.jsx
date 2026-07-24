@@ -6,7 +6,7 @@ import { CounterContext } from "../../contexts/filterContext";
 export default function Filter() {
   const { dispatch } = useContext(CounterContext);
   return (
-    <div className="filters-container p-56 mt-4">
+    <div className="filters-container mt-4 m-116">
       <button className="filter-btn">
         <span className="icon">⚙</span>
         Filters

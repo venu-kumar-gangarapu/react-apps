@@ -2,7 +2,7 @@ import "./banner.css";
 
 export default function Banner() {
   return (
-    <section className="banner">
+    <section className="banner m-116">
       <div className="banner-content">
         <h1>Get Delicious Food Delivered Fast</h1>
 

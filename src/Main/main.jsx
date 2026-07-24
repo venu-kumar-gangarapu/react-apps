@@ -1110,10 +1110,10 @@ export function Main() {
 
   return (
     <div className="main-container">
+      <CarouselCard/>
       <Banner/>
-      {/* <CarouselCard {...data[1]}/> */}
       <Filter/>
-      <div className="grid">
+      <div className="grid m-116 mt-3">
         {data.map((data, index) => (
           <div className="card" key={index} onClick={()=>goToItem(index)}>
             <div className="image-container">
