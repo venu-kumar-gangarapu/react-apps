@@ -79,7 +79,7 @@ body {
   display: flex;
   align-items: center;
   background: #fff;
-  padding: 12px 16px;
+  padding: 6px 8px;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -117,6 +117,7 @@ body {
 
 /* Search */
 .search-box {
+  position: relative;
   display: flex;
   align-items: center;
   flex: 1;
@@ -148,4 +149,13 @@ body {
   strong{
     color: #e23744;
   }
+}
+
+.search-result{
+  position: absolute;
+  top: 56px;
+}
+
+.top-78{
+  top:78px !important;
 }

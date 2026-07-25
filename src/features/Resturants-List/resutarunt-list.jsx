@@ -9,7 +9,7 @@ export function Resturants({data}){
     let navigate = useNavigate();
     const goToItem = (index)=>{
     console.log(index);
-    navigate("/food-item",{ state: data[index]?.menuData });
+    navigate("/food-item",{ state: collections[index]?.menuData });
   }
     return(
         <div className="m-116">
