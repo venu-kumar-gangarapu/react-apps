@@ -60,14 +60,7 @@ export default function OrangeLoungeCard() {
   // page was reloaded directly without navigation state).
   if (!menuData || !restaurant) {
     return (
-      <div
-        style={{
-          fontFamily: "'DM Sans', 'Segoe UI', sans-serif",
-          textAlign: "center",
-          color: "#aaa",
-          padding: 60,
-        }}
-      >
+      <div className="cc-empty-state">
         No menu data found. Please navigate here from the restaurant list.
       </div>
     );
@@ -90,32 +83,32 @@ export default function OrangeLoungeCard() {
     setExpanded((prev) => ({ ...prev, [key]: !prev[key] }));
 
   return (
-    <div style={{ fontFamily: "'DM Sans', 'Segoe UI', sans-serif", background: "#fff", maxWidth: 900, margin: "0 auto", color: "#1a1a1a" }}>
+    <div className="cc-page">
       {/* Header */}
-      <div style={{ padding: "20px 20px 0" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 12 }}>
+      <div className="cc-header">
+        <div className="cc-header-top">
           <div>
-            <h1 style={{ fontSize: 26, fontWeight: 700, margin: "0 0 4px", letterSpacing: "-0.3px" }}>
+            <h1 className="cc-title">
               {restaurant.name}
             </h1>
-            <p style={{ fontSize: 13, color: "#2a7de1", margin: "0 0 6px" }}>
+            <p className="cc-cuisines">
               {restaurant.cuisines.join(", ")}
             </p>
-            <p style={{ fontSize: 13, color: "#666", margin: 0 }}>{restaurant.address}</p>
+            <p className="cc-address">{restaurant.address}</p>
           </div>
-          <div style={{ display: "flex", gap: 10 }}>
+          <div className="cc-badge-wrap">
             {restaurant.rating ? (
-              <div style={{ textAlign: "center", background: "#f9f9f7", border: "1px solid #e5e0d8", borderRadius: 8, padding: "8px 14px" }}>
+              <div className="cc-rating-box">
                 <span className="cc-badge">{restaurant.rating} ★</span>
-                <div style={{ fontSize: 11, color: "#888", marginTop: 4 }}>Dining Rating</div>
+                <div className="cc-rating-sublabel">Dining Rating</div>
               </div>
             ) : restaurant.offer ? (
-              <div style={{ textAlign: "center", background: "#fff0ed", border: "1px solid #f5c9bd", borderRadius: 8, padding: "8px 14px" }}>
-                <span className="cc-badge" style={{ background: "#e8472a" }}>{restaurant.offer}</span>
-                <div style={{ fontSize: 11, color: "#888", marginTop: 4 }}>Just opened</div>
+              <div className="cc-offer-box">
+                <span className="cc-badge cc-badge-offer">{restaurant.offer}</span>
+                <div className="cc-rating-sublabel">Just opened</div>
               </div>
             ) : (
-              <div style={{ textAlign: "center", background: "#f9f9f7", border: "1px solid #e5e0d8", borderRadius: 8, padding: "8px 14px" }}>
+              <div className="cc-rating-box">
                 <span className="cc-badge">No ratings yet</span>
               </div>
             )}
@@ -123,7 +116,7 @@ export default function OrangeLoungeCard() {
         </div>
 
         {/* Info bar */}
-        <div className="cc-info-bar" style={{ marginTop: 10 }}>
+        <div className="cc-info-bar cc-info-bar--spaced">
           {restaurant.openingTime && <span className="cc-closing">Opens {restaurant.openingTime}</span>}
           {restaurant.priceForTwo != null && (
             <>
@@ -140,13 +133,13 @@ export default function OrangeLoungeCard() {
           {restaurant.phone && (
             <>
               <span>|</span>
-              <span style={{ color: "#e8472a" }}>📞 {restaurant.phone}</span>
+              <span className="cc-phone">📞 {restaurant.phone}</span>
             </>
           )}
         </div>
 
         {/* Action pills */}
-        <div style={{ display: "flex", gap: 8, marginTop: 12 }}>
+        <div className="cc-pills-row">
           {["Direction", "Share", "Reviews", "Book a table"].map((a) => (
             <button key={a} className="cc-pill">
               {a === "Direction" ? "↗" : a === "Share" ? "⤴" : a === "Reviews" ? "★" : "📅"} {a}
@@ -155,7 +148,7 @@ export default function OrangeLoungeCard() {
         </div>
 
         {/* Photo grid */}
-        <div className="cc-img-grid" style={{ marginTop: 14 }}>
+        <div className="cc-img-grid cc-img-grid--spaced">
           <img src={galleryImages[0]} alt={restaurant.name} />
           <div className="cc-img-right">
             <img src={galleryImages[1]} alt="interior" />
@@ -169,19 +162,18 @@ export default function OrangeLoungeCard() {
       </div>
 
       {/* Tabs */}
-      <div style={{ display: "flex", borderBottom: "1px solid #eee", marginTop: 6, paddingLeft: 8, overflowX: "auto" }}>
+      {/* <div style={{ display: "flex", borderBottom: "1px solid #eee", marginTop: 6, paddingLeft: 8, overflowX: "auto" }}>
         {tabs.map((t) => (
           <div key={t} className={`cc-tab ${activeTab === t ? "active" : ""}`} onClick={() => setActiveTab(t)}>
             {t}
           </div>
         ))}
-      </div>
+      </div> */}
 
       {/* Body */}
-      {activeTab === "Order Online" && (
-        <div style={{ display: "grid", gridTemplateColumns: "190px 1fr", gap: 0, minHeight: 500 }}>
+        <div>
           {/* Left sidebar */}
-          <div style={{ borderRight: "1px solid #f0ece8", padding: "14px 0" }}>
+          {/* <div style={{ borderRight: "1px solid #f0ece8", padding: "14px 0" }}>
             {Object.entries(menuData).map(([name, data]) => (
               <div
                 key={name}
@@ -191,14 +183,14 @@ export default function OrangeLoungeCard() {
                 {name} ({data.count})
               </div>
             ))}
-          </div>
+          </div> */}
 
           {/* Right content */}
-          <div style={{ padding: "16px 20px" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12, flexWrap: "wrap", gap: 8 }}>
+          <div className="cc-content">
+            <div className="cc-section-header">
               <div>
-                <h2 style={{ fontSize: 18, fontWeight: 700, margin: "0 0 2px" }}>{activeMenu}</h2>
-                <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, color: "#888" }}>
+                <h2 className="cc-menu-title">{activeMenu}</h2>
+                <div className="cc-live-track">
                   <span>🔴 Live track your order</span>
                   <span>|</span>
                   <span>⏱ 35 min</span>
@@ -220,27 +212,27 @@ export default function OrangeLoungeCard() {
                   const isExpanded = expanded[key];
                   return (
                     <div key={key} className="cc-dish-card">
-                      <div style={{ flex: 1 }}>
-                        <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4 }}>
-                          <span style={{ display: "inline-block", width: 14, height: 14, border: "1.5px solid #3d9142", borderRadius: 2, position: "relative" }}>
-                            <span style={{ position: "absolute", top: 2, left: 2, width: 6, height: 6, borderRadius: "50%", background: "#3d9142" }} />
+                      <div className="cc-dish-info">
+                        <div className="cc-dish-name-row">
+                          <span className="cc-veg-icon">
+                            <span className="cc-veg-icon-dot" />
                           </span>
-                          <span style={{ fontWeight: 600, fontSize: 14 }}>{item.name}</span>
+                          <span className="cc-dish-name">{item.name}</span>
                         </div>
-                        <p style={{ fontSize: 12.5, color: "#777", margin: 0, lineHeight: 1.5 }}>
+                        <p className="cc-dish-desc">
                           {isExpanded ? item.desc : item.desc.slice(0, 70) + "..."}
                           <span className="cc-read-more" onClick={() => toggleExpand(key)}>
                             {" "}{isExpanded ? "show less" : "read more"}
                           </span>
                         </p>
-                        <p>₹ {item.price}</p>
+                        <p className="cc-dish-price">₹ {item.price}</p>
                       </div>
-                      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, minWidth: 80, position: "relative" }}>
-                        <div style={{ width: 72, height: 60, borderRadius: 8, overflow: "hidden", background: "#f5f0eb", position: "relative" }}>
+                      <div className="cc-dish-actions">
+                        <div className="cc-dish-img-wrap">
                           <img
                             src={item.img || `https://images.unsplash.com/photo-${1567620905732 + i * 11111}?w=160&q=70`}
                             alt={item.name}
-                            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                            className="cc-dish-img"
                             onError={(e) => { e.target.style.display = "none"; }}
                           />
                           <div className="cc-veg-dot" />
@@ -254,17 +246,16 @@ export default function OrangeLoungeCard() {
             ))}
 
             {filteredSections?.length === 0 && (
-              <div style={{ textAlign: "center", color: "#aaa", marginTop: 40, fontSize: 14 }}>No items match your search.</div>
+              <div className="cc-no-results">No items match your search.</div>
             )}
           </div>
         </div>
-      )}
 
-      {activeTab !== "Order Online" && (
+      {/* {activeTab !== "Order Online" && (
         <div style={{ padding: 40, textAlign: "center", color: "#aaa", fontSize: 14 }}>
           {activeTab} content would appear here.
         </div>
-      )}
+      )} */}
     </div>
   );
 }

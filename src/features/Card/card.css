@@ -15,6 +15,210 @@ body {
   margin: 0;
 }
 
+/* ============ Page layout ============ */
+.cc-page {
+  font-family: "DM Sans", "Segoe UI", sans-serif;
+  background: #fff;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #1a1a1a;
+}
+
+.cc-empty-state {
+  font-family: "DM Sans", "Segoe UI", sans-serif;
+  text-align: center;
+  color: #aaa;
+  padding: 60px;
+}
+
+/* ============ Header ============ */
+.cc-header {
+  padding: 20px 20px 0;
+}
+
+.cc-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cc-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 4px;
+  letter-spacing: -0.3px;
+}
+
+.cc-cuisines {
+  font-size: 13px;
+  color: #2a7de1;
+  margin: 0 0 6px;
+}
+
+.cc-address {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+.cc-badge-wrap {
+  display: flex;
+  gap: 10px;
+}
+
+.cc-rating-box {
+  text-align: center;
+  background: #f9f9f7;
+  border: 1px solid #e5e0d8;
+  border-radius: 8px;
+  padding: 8px 14px;
+}
+
+.cc-offer-box {
+  text-align: center;
+  background: #fff0ed;
+  border: 1px solid #f5c9bd;
+  border-radius: 8px;
+  padding: 8px 14px;
+}
+
+.cc-rating-sublabel {
+  font-size: 11px;
+  color: #888;
+  margin-top: 4px;
+}
+
+.cc-badge-offer {
+  background: #e8472a;
+}
+
+/* Info bar spacing when placed under the header */
+.cc-info-bar--spaced {
+  margin-top: 10px;
+}
+
+.cc-phone {
+  color: #e8472a;
+}
+
+.cc-pills-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.cc-img-grid--spaced {
+  margin-top: 14px;
+}
+
+/* ============ Body / content ============ */
+.cc-content {
+  padding: 16px 20px;
+}
+
+.cc-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cc-menu-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 2px;
+}
+
+.cc-live-track {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #888;
+}
+
+/* ============ Dish card content ============ */
+.cc-dish-info {
+  flex: 1;
+}
+
+.cc-dish-name-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.cc-veg-icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid #3d9142;
+  border-radius: 2px;
+  position: relative;
+}
+
+.cc-veg-icon-dot {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3d9142;
+}
+
+.cc-dish-name {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.cc-dish-desc {
+  font-size: 12.5px;
+  color: #777;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.cc-dish-price {
+  margin: 4px 0 0;
+}
+
+.cc-dish-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 80px;
+  position: relative;
+}
+
+.cc-dish-img-wrap {
+  width: 196px;
+  height: 149px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f5f0eb;
+  position: relative;
+}
+
+.cc-dish-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cc-no-results {
+  text-align: center;
+  color: #aaa;
+  margin-top: 40px;
+  font-size: 14px;
+}
+
 /* ============ Info bar (Closes in... | price | phone) ============ */
 .cc-info-bar {
   display: inline-flex;

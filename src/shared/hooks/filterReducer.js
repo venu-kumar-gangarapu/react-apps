@@ -36,7 +36,7 @@ function getFilterCollection(state){
 }
 
 function getSearchData(search){
-    return initialData.filter((elem)=>elem?.menuData?.restaurantName.includes(search))
+    return initialData.filter((elem)=>elem?.menuData?.restaurantName.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
 }
 
 export {filterReducer,initialState}
