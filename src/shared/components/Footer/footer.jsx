@@ -53,6 +53,7 @@ function FooterColumn({ title, links }) {
         //   {link}
         // </a>
         link
+        link
       ))}
     </div>
   );
@@ -106,7 +107,7 @@ export default function Footer() {
           <div className="ftr-col-title">We deliver to:</div>
           {cities.map((c) => (
             // <a href="#" className="ftr-link" key={c}>
-              {c}
+              c
             // </a>
           ))}
           <select
@@ -125,7 +126,7 @@ export default function Footer() {
           <div className="ftr-col-title">Life at Swiggy</div>
           {lifeLinks.map((link) => (
             // <a href="#" className="ftr-link" key={link}>
-              {link}
+              link
             // </a>
           ))}
 
