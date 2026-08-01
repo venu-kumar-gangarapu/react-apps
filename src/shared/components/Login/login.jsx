@@ -5,7 +5,7 @@ import { DialogBoxContext } from "../../contexts/dialogContext";
 
 export default function Login() {
   const navigate = useNavigate();
-  const {dialogState,dispatchDialog} = useContext(DialogBoxContext);
+  const {dispatchDialog} = useContext(DialogBoxContext);
   const handleSignUp = () => {
     navigate("/sign-up");
   };

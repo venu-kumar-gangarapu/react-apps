@@ -12,10 +12,8 @@ const galleryImages = [
   "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=250&q=80",
 ];
 
-const tabs = ["Overview", "Order Online", "Reviews", "Photos", "Menu", "Book a Table"];
 
 export default function OrangeLoungeCard() {
-  const [activeTab, setActiveTab] = useState("Order Online");
   const [activeMenu, setActiveMenu] = useState(null);
   const [search, setSearch] = useState("");
   const [expanded, setExpanded] = useState({});

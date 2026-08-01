@@ -14,7 +14,7 @@ export default function Cart() {
   };
   useEffect(() => {
     console.log(cart);
-  }, []);
+  }, [cart]);
   return (
     <div className="cart-page">
       {/* <h2>My Cart</h2>   */}

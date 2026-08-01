@@ -1,20 +1,21 @@
 import { useState } from "react";
 import "./footer.css";
+import { Link } from "react-router-dom";
 
-const popularRestaurants = [
-  "Sharma Snacks",
-  "Gupta Brothers",
-  "Royal Biriyani",
-  "Chai Break",
-  "Veg Dhaba",
-  "Oh Calcutta",
-  "Denzong Kitchen",
-  "Arsalan",
-  "Peter Cat",
-  "Zen - The Park",
-  "Barbeque Nation",
-  "Wow! Momo",
-];
+// const popularRestaurants = [
+//   "Sharma Snacks",
+//   "Gupta Brothers",
+//   "Royal Biriyani",
+//   "Chai Break",
+//   "Veg Dhaba",
+//   "Oh Calcutta",
+//   "Denzong Kitchen",
+//   "Arsalan",
+//   "Peter Cat",
+//   "Zen - The Park",
+//   "Barbeque Nation",
+//   "Wow! Momo",
+// ];
 
 const footerColumns = [
   {
@@ -48,21 +49,22 @@ function FooterColumn({ title, links }) {
     <div className="ftr-col">
       <div className="ftr-col-title">{title}</div>
       {links.map((link) => (
-        <a href="#" className="ftr-link" key={link}>
-          {link}
-        </a>
+        // <a href="#" className="ftr-link" key={link}>
+        //   {link}
+        // </a>
+        {Link}
       ))}
     </div>
   );
 }
 
 export default function Footer() {
-  const [showAllRestaurants, setShowAllRestaurants] = useState(false);
+  // const [showAllRestaurants, setShowAllRestaurants] = useState(false);
   const [city, setCity] = useState("685 cities");
 
-  const visibleRestaurants = showAllRestaurants
-    ? popularRestaurants
-    : popularRestaurants.slice(0, 7);
+  // const visibleRestaurants = showAllRestaurants
+  //   ? popularRestaurants
+  //   : popularRestaurants.slice(0, 7);
 
   return (
     <footer className="ftr-root">
@@ -103,9 +105,9 @@ export default function Footer() {
         <div className="ftr-col">
           <div className="ftr-col-title">We deliver to:</div>
           {cities.map((c) => (
-            <a href="#" className="ftr-link" key={c}>
+            // <a href="#" className="ftr-link" key={c}>
               {c}
-            </a>
+            // </a>
           ))}
           <select
             className="ftr-city-select"
@@ -122,9 +124,9 @@ export default function Footer() {
         <div className="ftr-col">
           <div className="ftr-col-title">Life at Swiggy</div>
           {lifeLinks.map((link) => (
-            <a href="#" className="ftr-link" key={link}>
+            // <a href="#" className="ftr-link" key={link}>
               {link}
-            </a>
+            // </a>
           ))}
 
           <div className="ftr-col-title" style={{ marginTop: 20 }}>
@@ -132,11 +134,11 @@ export default function Footer() {
           </div>
           <div className="ftr-social-row">
             {socialIcons.map((icon) => (
-              <a href="#" className="ftr-social-icon" key={icon.name} aria-label={icon.name}>
+              // <a href="#" className="ftr-social-icon" key={icon.name} aria-label={icon.name}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d={icon.path} />
                 </svg>
-              </a>
+              // </a>
             ))}
           </div>
         </div>
