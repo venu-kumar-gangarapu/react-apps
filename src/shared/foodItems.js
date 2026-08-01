@@ -1,0 +1,1179 @@
+const data =  [
+  {
+    "id": 1,
+    "name": "Zen - The Park",
+    "rating": 4.5,
+    "cuisines": [
+      "Asian",
+      "Chinese",
+      "Thai",
+      "Malaysian"
+    ],
+    "priceForTwo": 3500,
+    "location": "Park Street Area, Kolkata",
+    "distance": "2.4 km",
+    "openingTime": "7pm",
+    "offer": "Flat 15% OFF",
+    "image": "assets/food/images1.jpg",
+    "menuData": {
+      "restaurantId": 1,
+      "restaurantName": "Zen - The Park",
+      "menu": {
+        "Pan-Asian": {
+          "count": 8,
+          "sections": [
+            {
+              "label": "ASIAN STARTERS",
+              "items": [
+                {
+                  "name": "Lemongrass Chicken Skewers",
+                  "desc": "Grilled chicken marinated in lemongrass, ginger and lime, served with a tangy dipping sauce.",
+                  "price": 390
+                },
+                {
+                  "name": "Crispy Salt & Pepper Squid",
+                  "desc": "Golden fried squid rings tossed with crushed pepper, garlic and spring onion.",
+                  "price": 140
+                },
+                {
+                  "name": "Vietnamese Summer Rolls",
+                  "desc": "Fresh rice paper rolls with prawns, herbs and rice noodles, served with peanut dip.",
+                  "price": 230
+                }
+              ]
+            },
+            {
+              "label": "THAI & MALAYSIAN MAINS",
+              "items": [
+                {
+                  "name": "Green Curry with Jasmine Rice",
+                  "desc": "Aromatic Thai green curry with chicken, bamboo shoots and basil in coconut milk.",
+                  "price": 250
+                },
+                {
+                  "name": "Nasi Goreng",
+                  "desc": "Malaysian style fried rice with shrimp paste, egg and crispy shallots.",
+                  "price": 400
+                },
+                {
+                  "name": "Penang Char Kway Teow",
+                  "desc": "Wok-fried flat rice noodles with prawns, egg and bean sprouts in dark soy.",
+                  "price": 160
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": 2,
+    "name": "Lmnoq",
+    "rating": 3.8,
+    "cuisines": [
+      "Continental",
+      "Italian",
+      "North Indian"
+    ],
+    "priceForTwo": 1700,
+    "location": "Park Street Area, Kolkata",
+    "distance": "2.6 km",
+    "openingTime": "12:30pm",
+    "offer": null,
+    "image": "assets/food/images2.jpg",
+    "menuData": {
+      "restaurantId": 2,
+      "restaurantName": "Lmnoq",
+      "menu": {
+        "Modern Italian": {
+          "count": 7,
+          "sections": [
+            {
+              "label": "ANTIPASTI",
+              "items": [
+                {
+                  "name": "Burrata with Heirloom Tomatoes",
+                  "desc": "Creamy burrata served over roasted heirloom tomatoes with basil oil.",
+                  "price": 380
+                },
+                {
+                  "name": "Grilled Zucchini Carpaccio",
+                  "desc": "Thinly sliced zucchini with shaved parmesan, pine nuts and lemon dressing.",
+                  "price": 300
+                }
+              ]
+            },
+            {
+              "label": "HANDMADE PASTA",
+              "items": [
+                {
+                  "name": "Truffle Mushroom Risotto",
+                  "desc": "Slow-cooked arborio rice with wild mushrooms and a hint of black truffle oil.",
+                  "price": 440
+                },
+                {
+                  "name": "Lobster Ravioli",
+                  "desc": "House-made ravioli filled with lobster in a light saffron cream sauce.",
+                  "price": 160
+                },
+                {
+                  "name": "Penne Arrabbiata",
+                  "desc": "Penne tossed in a fiery tomato and chilli sauce with fresh garlic.",
+                  "price": 250
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": 3,
+    "name": "Orange Lounge & Pub",
+    "rating": null,
+    "cuisines": [
+      "Continental",
+      "Asian"
+    ],
+    "priceForTwo": 2500,
+    "location": "Camac Street Area, Kolkata",
+    "distance": "3.4 km",
+    "openingTime": "12 noon",
+    "offer": "New",
+    "image": "assets/food/images3.jpg",
+    "menuData": {
+      "restaurantId": 3,
+      "restaurantName": "Orange Lounge & Pub",
+      "menu": {
+        "Pub Grub": {
+          "count": 9,
+          "sections": [
+            {
+              "label": "BAR BITES",
+              "items": [
+                {
+                  "name": "Beer Battered Fish Fingers",
+                  "desc": "Crispy beer-battered fish strips served with tartar sauce and lemon wedge.",
+                  "price": 220
+                },
+                {
+                  "name": "Loaded Nachos",
+                  "desc": "Tortilla chips piled with jalapenos, cheese sauce, salsa and sour cream.",
+                  "price": 380
+                },
+                {
+                  "name": "Chicken Popcorn",
+                  "desc": "Bite sized crispy fried chicken tossed in a smoky seasoning.",
+                  "price": 330
+                }
+              ]
+            },
+            {
+              "label": "ASIAN FUSION PLATTERS",
+              "items": [
+                {
+                  "name": "Dragon Chicken",
+                  "desc": "Crispy chicken tossed in a sweet, spicy Szechuan style glaze topped with cashews.",
+                  "price": 120
+                },
+                {
+                  "name": "Singapore Rice Noodles",
+                  "desc": "Curry-spiced rice vermicelli stir-fried with vegetables and egg.",
+                  "price": 430
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": 4,
+    "name": "The Flamboyant",
+    "rating": 4.6,
+    "cuisines": [
+      "North Indian",
+      "Chinese"
+    ],
+    "priceForTwo": 2000,
+    "location": "Chowringhee, Kolkata",
+    "distance": "2.4 km",
+    "openingTime": "12 noon",
+    "offer": "Flat 15% OFF",
+    "image": "assets/food/images4.jpg",
+    "menuData": {
+      "restaurantId": 4,
+      "restaurantName": "The Flamboyant",
+      "menu": {
+        "Indo-Chinese Grill": {
+          "count": 10,
+          "sections": [
+            {
+              "label": "TANDOOR SPECIALS",
+              "items": [
+                {
+                  "name": "Tandoori Malai Chicken",
+                  "desc": "Chicken marinated in cream, cheese and mild spices, roasted in the clay oven.",
+                  "price": 330
+                },
+                {
+                  "name": "Amritsari Fish Tikka",
+                  "desc": "Chunks of fish marinated in carom seed and gram flour, char-grilled.",
+                  "price": 400
+                },
+                {
+                  "name": "Peshawari Mutton Chaap",
+                  "desc": "Bone-in mutton ribs marinated overnight in a rich spiced yogurt.",
+                  "price": 290
+                }
+              ]
+            },
+            {
+              "label": "WOK TOSSED FAVOURITES",
+              "items": [
+                {
+                  "name": "Schezwan Chicken Dry",
+                  "desc": "Wok tossed chicken in a fiery schezwan sauce with bell peppers.",
+                  "price": 300
+                },
+                {
+                  "name": "Vegetable American Chopsuey",
+                  "desc": "Crispy fried noodles topped with a sweet-sour mixed vegetable gravy.",
+                  "price": 130
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": 5,
+    "name": "Rever Cafe",
+    "rating": 4.3,
+    "cuisines": [
+      "North Indian",
+      "Chinese",
+      "Pizza"
+    ],
+    "priceForTwo": 1000,
+    "location": "Dobson Road, Howrah",
+    "distance": "3.1 km",
+    "openingTime": "12 noon",
+    "offer": null,
+    "image": "assets/food/images5.jpg",
+    "menuData": {
+      "restaurantId": 5,
+      "restaurantName": "Rever Cafe",
+      "menu": {
+        "Cafe & Comfort Food": {
+          "count": 8,
+          "sections": [
+            {
+              "label": "ALL DAY BREAKFAST",
+              "items": [
+                {
+                  "name": "Classic Eggs Benedict",
+                  "desc": "Poached eggs on toasted muffins with hollandaise sauce and grilled ham.",
+                  "price": 290
+                },
+                {
+                  "name": "Belgian Waffles with Maple Syrup",
+                  "desc": "Fluffy waffles served warm with butter and maple syrup.",
+                  "price": 320
+                }
+              ]
+            },
+            {
+              "label": "COMFORT MAINS",
+              "items": [
+                {
+                  "name": "Wood Fired Margherita Pizza",
+                  "desc": "Thin crust pizza topped with fresh mozzarella, basil and tomato sauce.",
+                  "price": 180
+                },
+                {
+                  "name": "Chicken Manchurian Gravy",
+                  "desc": "Deep-fried chicken balls simmered in a tangy soy-ginger gravy.",
+                  "price": 120
+                },
+                {
+                  "name": "Baked Mac and Cheese",
+                  "desc": "Creamy macaroni baked with a blend of cheddar and mozzarella cheese.",
+                  "price": 150
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": 6,
+    "name": "Corridor Bar & Kitchen",
+    "rating": 4.4,
+    "cuisines": [
+      "North Indian",
+      "Chinese"
+    ],
+    "priceForTwo": 1800,
+    "location": "Chowringhee, Kolkata",
+    "distance": "2.5 km",
+    "openingTime": "2pm",
+    "offer": "Flat 10% OFF",
+    "image": "assets/food/images6.jpg",
+    "menuData": {
+      "restaurantId": 6,
+      "restaurantName": "Corridor Bar & Kitchen",
+      "menu": {
+        "Bar & Kitchen Classics": {
+          "count": 9,
+          "sections": [
+            {
+              "label": "SMALL PLATES",
+              "items": [
+                {
+                  "name": "Chicken Reshmi Kebab",
+                  "desc": "Silky smooth chicken kebabs marinated in cream and cashew paste.",
+                  "price": 270
+                },
+                {
+                  "name": "Chilli Paneer Dry",
+                  "desc": "Cottage cheese cubes tossed with onions, capsicum in a spicy soy glaze.",
+                  "price": 440
+                }
+              ]
+            },
+            {
+              "label": "CURRIES & MAINS",
+              "items": [
+                {
+                  "name": "Kolkata Style Kosha Mangsho",
+                  "desc": "Slow-cooked mutton curry in the traditional Bengali style with mustard oil.",
+                  "price": 350
+                },
+                {
+                  "name": "Chicken Chilli Garlic Noodles",
+                  "desc": "Stir-fried noodles with shredded chicken in a bold garlic chilli sauce.",
+                  "price": 420
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": 7,
+    "name": "Pawan Putra",
+    "rating": 4.4,
+    "cuisines": [
+      "North Indian",
+      "Chinese"
+    ],
+    "priceForTwo": 1200,
+    "location": "Kankurgachi, Kolkata",
+    "distance": "2.8 km",
+    "openingTime": "12 noon",
+    "offer": "Flat 10% OFF",
+    "image": "assets/food/images7.jpg",
+    "menuData": {
+      "restaurantId": 7,
+      "restaurantName": "Pawan Putra",
+      "menu": {
+        "Home Style North Indian": {
+          "count": 8,
+          "sections": [
+            {
+              "label": "DAL & SABZI",
+              "items": [
+                {
+                  "name": "Dal Tadka",
+                  "desc": "Yellow lentils tempered with cumin, garlic and dried red chillies.",
+                  "price": 220
+                },
+                {
+                  "name": "Kadai Paneer",
+                  "desc": "Cottage cheese and bell peppers cooked in a coarsely ground spice masala.",
+                  "price": 240
+                }
+              ]
+            },
+            {
+              "label": "ROTI & RICE",
+              "items": [
+                {
+                  "name": "Lachha Paratha",
+                  "desc": "Multi-layered flaky whole wheat flatbread cooked on a griddle.",
+                  "price": 360
+                },
+                {
+                  "name": "Jeera Rice",
+                  "desc": "Basmati rice tempered with roasted cumin seeds and ghee.",
+                  "price": 210
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": 8,
+    "name": "Park Street Social",
+    "rating": 4.4,
+    "cuisines": [
+      "North Indian",
+      "Fast Food",
+      "Continental"
+    ],
+    "priceForTwo": 1500,
+    "location": "Park Street Area, Kolkata",
+    "distance": "2.5 km",
+    "openingTime": "11am",
+    "offer": null,
+    "image": "assets/food/images8.jpg",
+    "menuData": {
+      "restaurantId": 8,
+      "restaurantName": "Park Street Social",
+      "menu": {
+        "Social Eats": {
+          "count": 10,
+          "sections": [
+            {
+              "label": "SOCIAL SIGNATURES",
+              "items": [
+                {
+                  "name": "Peri Peri Loaded Fries",
+                  "desc": "Crispy fries tossed in peri peri seasoning, topped with cheese sauce.",
+                  "price": 350
+                },
+                {
+                  "name": "Grilled Chicken Sliders",
+                  "desc": "Mini burger buns with grilled chicken patty, lettuce and chipotle mayo.",
+                  "price": 210
+                }
+              ]
+            },
+            {
+              "label": "NORTH INDIAN THALI",
+              "items": [
+                {
+                  "name": "Rajma Chawal",
+                  "desc": "Red kidney beans slow-cooked in a tomato gravy, served with steamed rice.",
+                  "price": 170
+                },
+                {
+                  "name": "Aloo Gobi Masala",
+                  "desc": "Potatoes and cauliflower sauteed with turmeric, cumin and ginger.",
+                  "price": 230
+                },
+                {
+                  "name": "Butter Naan",
+                  "desc": "Soft leavened bread brushed with melted butter, baked in the tandoor.",
+                  "price": 120
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": 9,
+    "name": "Hard Rock Cafe",
+    "rating": 4.5,
+    "cuisines": [
+      "American",
+      "Continental",
+      "Italian"
+    ],
+    "priceForTwo": 2000,
+    "location": "Park Street Area, Kolkata",
+    "distance": "2.5 km",
+    "openingTime": "12 noon",
+    "offer": "Flat 10% OFF",
+    "image": "assets/food/images9.jpg",
+    "menuData": {
+      "restaurantId": 9,
+      "restaurantName": "Hard Rock Cafe",
+      "menu": {
+        "American Rock Grill": {
+          "count": 9,
+          "sections": [
+            {
+              "label": "LEGENDARY BURGERS",
+              "items": [
+                {
+                  "name": "Legendary Classic Burger",
+                  "desc": "Beef patty topped with lettuce, tomato, cheddar and signature rock sauce.",
+                  "price": 430
+                },
+                {
+                  "name": "Smokehouse BBQ Burger",
+                  "desc": "Grilled patty layered with crispy onions and smoky barbecue glaze.",
+                  "price": 330
+                }
+              ]
+            },
+            {
+              "label": "GRILL & PASTA",
+              "items": [
+                {
+                  "name": "Cajun Chicken Alfredo Pasta",
+                  "desc": "Fettuccine tossed in creamy alfredo sauce with blackened cajun chicken.",
+                  "price": 160
+                },
+                {
+                  "name": "Twisted Mac n Cheese",
+                  "desc": "Rotini pasta baked with a three cheese blend and toasted breadcrumbs.",
+                  "price": 260
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": 10,
+    "name": "Barbeque Nation",
+    "rating": 4.3,
+    "cuisines": [
+      "North Indian",
+      "BBQ"
+    ],
+    "priceForTwo": 1800,
+    "location": "Salt Lake, Kolkata",
+    "distance": "4.1 km",
+    "openingTime": "12 noon",
+    "offer": "Flat 20% OFF",
+    "image": "assets/food/images10.jpg",
+    "menuData": {
+      "restaurantId": 10,
+      "restaurantName": "Barbeque Nation",
+      "menu": {
+        "Live BBQ Buffet": {
+          "count": 12,
+          "sections": [
+            {
+              "label": "LIVE GRILL STARTERS",
+              "items": [
+                {
+                  "name": "Kali Mirch Chicken Tikka",
+                  "desc": "Black pepper marinated chicken cubes grilled fresh on the live counter.",
+                  "price": 390
+                },
+                {
+                  "name": "Mutton Galouti Kebab",
+                  "desc": "Melt-in-mouth minced mutton kebabs flavoured with a secret spice blend.",
+                  "price": 180
+                },
+                {
+                  "name": "Tandoori Prawns",
+                  "desc": "Jumbo prawns marinated in tandoori spices and cooked over open flame.",
+                  "price": 180
+                }
+              ]
+            },
+            {
+              "label": "BUFFET MAINS & DESSERT",
+              "items": [
+                {
+                  "name": "Mutton Rogan Josh",
+                  "desc": "Kashmiri style mutton curry slow-cooked with aromatic whole spices.",
+                  "price": 130
+                },
+                {
+                  "name": "Live Dosa Counter",
+                  "desc": "Freshly made crispy dosas served hot with sambhar and chutneys.",
+                  "price": 280
+                },
+                {
+                  "name": "Gulab Jamun with Ice Cream",
+                  "desc": "Warm gulab jamuns served alongside a scoop of vanilla ice cream.",
+                  "price": 440
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": 11,
+    "name": "Arsalan",
+    "rating": 4.6,
+    "cuisines": [
+      "Mughlai",
+      "Biryani"
+    ],
+    "priceForTwo": 1200,
+    "location": "Park Circus, Kolkata",
+    "distance": "3.2 km",
+    "openingTime": "11am",
+    "offer": null,
+    "image": "assets/food/images11.jpg",
+    "menuData": {
+      "restaurantId": 11,
+      "restaurantName": "Arsalan",
+      "menu": {
+        "Mughlai & Biryani House": {
+          "count": 7,
+          "sections": [
+            {
+              "label": "SIGNATURE BIRYANI",
+              "items": [
+                {
+                  "name": "Kolkata Mutton Biryani",
+                  "desc": "Fragrant basmati rice layered with slow-cooked mutton, potato and boiled egg.",
+                  "price": 280
+                },
+                {
+                  "name": "Chicken Chaap Biryani",
+                  "desc": "Aromatic biryani served alongside a rich, creamy chicken chaap curry.",
+                  "price": 440
+                }
+              ]
+            },
+            {
+              "label": "MUGHLAI SIDES",
+              "items": [
+                {
+                  "name": "Mutton Rezala",
+                  "desc": "A delicate white gravy curry made with yogurt, cream and whole spices.",
+                  "price": 220
+                },
+                {
+                  "name": "Beguni",
+                  "desc": "Crispy gram flour battered eggplant fritters, a classic Bengali starter.",
+                  "price": 380
+                },
+                {
+                  "name": "Mishti Doi",
+                  "desc": "Traditional sweetened caramelised yogurt dessert served chilled.",
+                  "price": 300
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": 12,
+    "name": "Peter Cat",
+    "rating": 4.5,
+    "cuisines": [
+      "Continental",
+      "North Indian"
+    ],
+    "priceForTwo": 2200,
+    "location": "Park Street, Kolkata",
+    "distance": "2.1 km",
+    "openingTime": "12 noon",
+    "offer": null,
+    "image": "assets/food/images12.jpg",
+    "menuData": {
+      "restaurantId": 12,
+      "restaurantName": "Peter Cat",
+      "menu": {
+        "Continental Classics": {
+          "count": 8,
+          "sections": [
+            {
+              "label": "SOUPS & SALADS",
+              "items": [
+                {
+                  "name": "Cream of Mushroom Soup",
+                  "desc": "Velvety mushroom soup finished with a swirl of fresh cream.",
+                  "price": 230
+                },
+                {
+                  "name": "Classic Caesar Salad",
+                  "desc": "Crisp romaine lettuce with parmesan shavings, croutons and caesar dressing.",
+                  "price": 250
+                }
+              ]
+            },
+            {
+              "label": "OLD KOLKATA FAVOURITES",
+              "items": [
+                {
+                  "name": "Chicken a la Kiev",
+                  "desc": "Breaded chicken breast stuffed with garlic butter, fried till golden.",
+                  "price": 400
+                },
+                {
+                  "name": "Devilled Crab",
+                  "desc": "A vintage Kolkata classic of spiced crab meat baked in its shell.",
+                  "price": 260
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": 13,
+    "name": "Wow! Momo",
+    "rating": 4.2,
+    "cuisines": [
+      "Chinese",
+      "Fast Food"
+    ],
+    "priceForTwo": 600,
+    "location": "Multiple Outlets",
+    "distance": "1.5 km",
+    "openingTime": "10am",
+    "offer": "Flat 10% OFF",
+    "image": "assets/food/images13.jpg",
+    "menuData": {
+      "restaurantId": 13,
+      "restaurantName": "Wow! Momo",
+      "menu": {
+        "Momo Specialist": {
+          "count": 6,
+          "sections": [
+            {
+              "label": "STEAMED MOMOS",
+              "items": [
+                {
+                  "name": "Chicken Steam Momo",
+                  "desc": "Soft dumplings filled with minced chicken, ginger and spring onion.",
+                  "price": 270
+                },
+                {
+                  "name": "Paneer Steam Momo",
+                  "desc": "Steamed dumplings stuffed with grated cottage cheese and herbs.",
+                  "price": 350
+                }
+              ]
+            },
+            {
+              "label": "PAN FRIED & TANDOORI MOMOS",
+              "items": [
+                {
+                  "name": "Peri Peri Pan Fried Momo",
+                  "desc": "Crispy bottomed momos tossed in a tangy peri peri seasoning.",
+                  "price": 230
+                },
+                {
+                  "name": "Tandoori Chicken Momo",
+                  "desc": "Steamed momos char-grilled in tandoori marinade for a smoky finish.",
+                  "price": 130
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": 14,
+    "name": "KFC",
+    "rating": 4.1,
+    "cuisines": [
+      "Fast Food",
+      "American"
+    ],
+    "priceForTwo": 800,
+    "location": "City Centre, Kolkata",
+    "distance": "2.7 km",
+    "openingTime": "10am",
+    "offer": null,
+    "image": "assets/food/images14.jpg",
+    "menuData": {
+      "restaurantId": 14,
+      "restaurantName": "KFC",
+      "menu": {
+        "Fried Chicken Specials": {
+          "count": 7,
+          "sections": [
+            {
+              "label": "SIGNATURE FRIED CHICKEN",
+              "items": [
+                {
+                  "name": "Original Recipe Chicken Bucket",
+                  "desc": "Crispy fried chicken pieces made with the classic secret spice blend.",
+                  "price": 120
+                },
+                {
+                  "name": "Hot & Crispy Chicken",
+                  "desc": "Extra spicy crunchy fried chicken with a fiery coating.",
+                  "price": 320
+                }
+              ]
+            },
+            {
+              "label": "SNACKERS & SIDES",
+              "items": [
+                {
+                  "name": "Zinger Burger",
+                  "desc": "Spicy crispy chicken fillet burger with lettuce and mayo.",
+                  "price": 330
+                },
+                {
+                  "name": "Popcorn Chicken Box",
+                  "desc": "Bite sized crunchy chicken pieces tossed in seasoning.",
+                  "price": 450
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": 15,
+    "name": "Domino's Pizza",
+    "rating": 4.0,
+    "cuisines": [
+      "Pizza",
+      "Fast Food"
+    ],
+    "priceForTwo": 900,
+    "location": "Multiple Outlets",
+    "distance": "2.0 km",
+    "openingTime": "11am",
+    "offer": "Buy 1 Get 1",
+    "image": "assets/food/images15.jpg",
+    "menuData": {
+      "restaurantId": 15,
+      "restaurantName": "Domino's Pizza",
+      "menu": {
+        "Pizza & Sides": {
+          "count": 8,
+          "sections": [
+            {
+              "label": "SIGNATURE PIZZAS",
+              "items": [
+                {
+                  "name": "Peppy Paneer Pizza",
+                  "desc": "Loaded with juicy paneer, capsicum and red pepper on a cheesy base.",
+                  "price": 300
+                },
+                {
+                  "name": "Chicken Pepperoni Pizza",
+                  "desc": "Classic pepperoni slices layered over melted mozzarella cheese.",
+                  "price": 230
+                }
+              ]
+            },
+            {
+              "label": "SIDES & DIPS",
+              "items": [
+                {
+                  "name": "Cheesy Garlic Breadsticks",
+                  "desc": "Warm breadsticks topped with garlic butter and molten cheese.",
+                  "price": 420
+                },
+                {
+                  "name": "Choco Lava Cake",
+                  "desc": "Warm chocolate cake with a gooey molten centre.",
+                  "price": 170
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": 16,
+    "name": "Mainland China",
+    "rating": 4.4,
+    "cuisines": [
+      "Chinese"
+    ],
+    "priceForTwo": 2500,
+    "location": "South City Mall, Kolkata",
+    "distance": "5.3 km",
+    "openingTime": "12 noon",
+    "offer": null,
+    "image": "assets/food/images16.jpg",
+    "menuData": {
+      "restaurantId": 16,
+      "restaurantName": "Mainland China",
+      "menu": {
+        "Fine Chinese Dining": {
+          "count": 9,
+          "sections": [
+            {
+              "label": "DIM SUM & STARTERS",
+              "items": [
+                {
+                  "name": "Crystal Prawn Dumplings",
+                  "desc": "Steamed translucent dumplings filled with fresh prawn and chives.",
+                  "price": 170
+                },
+                {
+                  "name": "Crispy Lotus Stem",
+                  "desc": "Thinly sliced lotus root, fried crisp and tossed in a chilli glaze.",
+                  "price": 330
+                }
+              ]
+            },
+            {
+              "label": "SIGNATURE MAINS",
+              "items": [
+                {
+                  "name": "Peking Style Duck",
+                  "desc": "Crispy roasted duck served with pancakes, spring onion and hoisin sauce.",
+                  "price": 150
+                },
+                {
+                  "name": "Sizzling Black Pepper Beef",
+                  "desc": "Tender beef strips stir-fried in a bold black pepper sauce, served sizzling.",
+                  "price": 370
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": 17,
+    "name": "Baskin Robbins",
+    "rating": 4.3,
+    "cuisines": [
+      "Desserts",
+      "Ice Cream"
+    ],
+    "priceForTwo": 500,
+    "location": "Park Street, Kolkata",
+    "distance": "2.2 km",
+    "openingTime": "11am",
+    "offer": "Flat 15% OFF",
+    "image": "assets/food/images17.jpg",
+    "menuData": {
+      "restaurantId": 17,
+      "restaurantName": "Baskin Robbins",
+      "menu": {
+        "Ice Cream & Desserts": {
+          "count": 6,
+          "sections": [
+            {
+              "label": "SIGNATURE SUNDAES",
+              "items": [
+                {
+                  "name": "Death by Chocolate Sundae",
+                  "desc": "Layers of chocolate ice cream, brownie chunks and hot fudge sauce.",
+                  "price": 190
+                },
+                {
+                  "name": "Mango Tango Sundae",
+                  "desc": "Fresh mango scoops topped with mango sauce and whipped cream.",
+                  "price": 140
+                }
+              ]
+            },
+            {
+              "label": "SHAKES & TUBS",
+              "items": [
+                {
+                  "name": "Oreo Overload Shake",
+                  "desc": "Thick vanilla shake blended with crushed Oreo cookies.",
+                  "price": 330
+                },
+                {
+                  "name": "Family Pack Tub - Butterscotch",
+                  "desc": "A generous tub of classic butterscotch ice cream to share at home.",
+                  "price": 320
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": 18,
+    "name": "Cafe Coffee Day",
+    "rating": 4.0,
+    "cuisines": [
+      "Cafe",
+      "Beverages"
+    ],
+    "priceForTwo": 700,
+    "location": "Salt Lake, Kolkata",
+    "distance": "3.8 km",
+    "openingTime": "9am",
+    "offer": null,
+    "image": "assets/food/images18.jpg",
+    "menuData": {
+      "restaurantId": 18,
+      "restaurantName": "Cafe Coffee Day",
+      "menu": {
+        "Coffee & Beverages": {
+          "count": 7,
+          "sections": [
+            {
+              "label": "SIGNATURE COFFEES",
+              "items": [
+                {
+                  "name": "Caramel Macchiato",
+                  "desc": "Espresso layered with steamed milk and a drizzle of caramel syrup.",
+                  "price": 350
+                },
+                {
+                  "name": "Hazelnut Cold Brew",
+                  "desc": "Smooth cold brewed coffee infused with roasted hazelnut flavour.",
+                  "price": 180
+                }
+              ]
+            },
+            {
+              "label": "SNACKS TO PAIR",
+              "items": [
+                {
+                  "name": "Veg Grilled Sandwich",
+                  "desc": "Toasted sandwich stuffed with fresh vegetables and mint chutney.",
+                  "price": 330
+                },
+                {
+                  "name": "Chocolate Chip Muffin",
+                  "desc": "Soft baked muffin loaded with chocolate chips.",
+                  "price": 170
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": 19,
+    "name": "Haldiram's",
+    "rating": 4.3,
+    "cuisines": [
+      "North Indian",
+      "Snacks"
+    ],
+    "priceForTwo": 800,
+    "location": "Esplanade, Kolkata",
+    "distance": "2.0 km",
+    "openingTime": "10am",
+    "offer": null,
+    "image": "assets/food/images19.jpg",
+    "menuData": {
+      "restaurantId": 19,
+      "restaurantName": "Haldiram's",
+      "menu": {
+        "Indian Sweets & Snacks": {
+          "count": 8,
+          "sections": [
+            {
+              "label": "NAMKEEN & CHAAT",
+              "items": [
+                {
+                  "name": "Raj Kachori",
+                  "desc": "Crisp puffed shell filled with lentils, yogurt, chutneys and sev.",
+                  "price": 130
+                },
+                {
+                  "name": "Aloo Tikki Chaat",
+                  "desc": "Spiced potato patties topped with tangy tamarind and mint chutney.",
+                  "price": 410
+                }
+              ]
+            },
+            {
+              "label": "SWEETS BOX",
+              "items": [
+                {
+                  "name": "Kaju Katli",
+                  "desc": "Diamond shaped cashew fudge with a delicate silver leaf topping.",
+                  "price": 380
+                },
+                {
+                  "name": "Motichoor Ladoo",
+                  "desc": "Fine gram flour pearls bound together with sugar syrup and ghee.",
+                  "price": 140
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": 20,
+    "name": "Subway",
+    "rating": 4.1,
+    "cuisines": [
+      "Healthy Food",
+      "Fast Food"
+    ],
+    "priceForTwo": 600,
+    "location": "New Market, Kolkata",
+    "distance": "2.3 km",
+    "openingTime": "10am",
+    "offer": "Flat 10% OFF",
+    "image": "assets/food/images20.jpg",
+    "menuData": {
+      "restaurantId": 20,
+      "restaurantName": "Subway",
+      "menu": {
+        "Healthy Subs": {
+          "count": 7,
+          "sections": [
+            {
+              "label": "SIGNATURE SUBS",
+              "items": [
+                {
+                  "name": "Chicken Teriyaki Sub",
+                  "desc": "Grilled chicken glazed in teriyaki sauce, packed with fresh veggies.",
+                  "price": 290
+                },
+                {
+                  "name": "Veggie Delite Sub",
+                  "desc": "A loaded sub with fresh lettuce, tomato, cucumber, olives and peppers.",
+                  "price": 390
+                }
+              ]
+            },
+            {
+              "label": "SALADS & SIDES",
+              "items": [
+                {
+                  "name": "Protein Chicken Salad Bowl",
+                  "desc": "Grilled chicken over fresh greens with a light vinaigrette dressing.",
+                  "price": 150
+                },
+                {
+                  "name": "Baked Jalapeno Cheese Bites",
+                  "desc": "Crispy baked bites stuffed with jalapeno and melted cheese.",
+                  "price": 220
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+]
+
+export default data;

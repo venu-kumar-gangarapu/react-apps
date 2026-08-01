@@ -1,25 +1,25 @@
-import { useState } from "react";
 import "./App.css";
-import Header from "./Header/header";
-import { Main } from "./Main/main";
-import Card from "./Card/card"
+import AppRotes from "./routes";
+import Dialog from "./shared/components/Dialogbox/dialogbox";
+import Footer from "./shared/components/Footer/footer";
+import Header from "./shared/components/Header/header";
+import { CartContext } from "./shared/contexts/cartContext";
+import {DialogContext} from "./shared/contexts/dialogContext";
+import { FilterContext } from "./shared/contexts/filterContext";
 
 function App() {
   return (
-    <>
-      <Header isLogin="true" />
-      <Main/>
-      {/* <Card/> */}
-      <Footer />
-    </>
+    <DialogContext>
+      <CartContext>
+        <FilterContext>
+          <Header isLogin="true" />
+          <AppRotes />
+          <Dialog/>
+          <Footer />
+        </FilterContext>
+      </CartContext>
+    </DialogContext>
   );
 }
 
-function Footer() {
-  return (
-    <>
-      <footer>jklkkk</footer>
-    </>
-  );
-}
 export default App;

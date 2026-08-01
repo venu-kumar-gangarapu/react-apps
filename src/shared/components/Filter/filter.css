@@ -1,0 +1,39 @@
+/* body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  padding: 30px 20px;
+} */
+
+.filters-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background: #fff;
+
+  border: 1px solid #d6d6d6;
+  border-radius: 12px;
+
+  color: #6b7280;
+  font-size: 18px;
+  font-weight: 400;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: #ef4f5f;
+  color: #ef4f5f;
+}
+
+.icon {
+  font-size: 16px;
+}

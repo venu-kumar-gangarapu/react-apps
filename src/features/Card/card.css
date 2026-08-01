@@ -1,0 +1,492 @@
+/* Import Font */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap");
+
+/* Global reset — prevents borders/padding on pills, search box, and the
+   active sidebar item from overflowing their containers */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Global Font */
+body {
+  font-family: "DM Sans", sans-serif;
+  margin: 0;
+}
+
+/* ============ Page layout ============ */
+.cc-page {
+  font-family: "DM Sans", "Segoe UI", sans-serif;
+  background: #fff;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #1a1a1a;
+}
+
+.cc-empty-state {
+  font-family: "DM Sans", "Segoe UI", sans-serif;
+  text-align: center;
+  color: #aaa;
+  padding: 60px;
+}
+
+/* ============ Header ============ */
+.cc-header {
+  padding: 20px 20px 0;
+}
+
+.cc-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cc-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 4px;
+  letter-spacing: -0.3px;
+}
+
+.cc-cuisines {
+  font-size: 13px;
+  color: #2a7de1;
+  margin: 0 0 6px;
+}
+
+.cc-address {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+.cc-badge-wrap {
+  display: flex;
+  gap: 10px;
+}
+
+.cc-rating-box {
+  text-align: center;
+  background: #f9f9f7;
+  border: 1px solid #e5e0d8;
+  border-radius: 8px;
+  padding: 8px 14px;
+}
+
+.cc-offer-box {
+  text-align: center;
+  background: #fff0ed;
+  border: 1px solid #f5c9bd;
+  border-radius: 8px;
+  padding: 8px 14px;
+}
+
+.cc-rating-sublabel {
+  font-size: 11px;
+  color: #888;
+  margin-top: 4px;
+}
+
+.cc-badge-offer {
+  background: #e8472a;
+}
+
+/* Info bar spacing when placed under the header */
+.cc-info-bar--spaced {
+  margin-top: 10px;
+}
+
+.cc-phone {
+  color: #e8472a;
+}
+
+.cc-pills-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.cc-img-grid--spaced {
+  margin-top: 14px;
+}
+
+/* ============ Body / content ============ */
+.cc-content {
+  padding: 16px 20px;
+}
+
+.cc-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cc-menu-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 2px;
+}
+
+.cc-live-track {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #888;
+}
+
+/* ============ Dish card content ============ */
+.cc-dish-info {
+  flex: 1;
+}
+
+.cc-dish-name-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.cc-veg-icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid #3d9142;
+  border-radius: 2px;
+  position: relative;
+}
+
+.cc-veg-icon-dot {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3d9142;
+}
+
+.cc-dish-name {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.cc-dish-desc {
+  font-size: 12.5px;
+  color: #777;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.cc-dish-price {
+  margin: 4px 0 0;
+}
+
+.cc-dish-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 80px;
+  position: relative;
+}
+
+.cc-dish-img-wrap {
+  width: 196px;
+  height: 149px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f5f0eb;
+  position: relative;
+}
+
+.cc-dish-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cc-no-results {
+  text-align: center;
+  color: #aaa;
+  margin-top: 40px;
+  font-size: 14px;
+}
+
+/* ============ Info bar (Closes in... | price | phone) ============ */
+.cc-info-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #555;
+  flex-wrap: wrap;
+}
+
+.cc-info-bar .cc-closing {
+  color: #c0392b;
+  font-weight: 500;
+  border-bottom: 1px dotted #c0392b;
+}
+
+/* Tabs */
+.cc-tab {
+  cursor: pointer;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.cc-tab:hover {
+  color: #e8472a;
+}
+
+.cc-tab.active {
+  color: #e8472a;
+  border-bottom-color: #e8472a;
+}
+
+/* Menu Items (sidebar) */
+.cc-menu-item {
+  cursor: pointer;
+  padding: 10px 14px;
+  font-size: 13.5px;
+  color: #444;
+  border-radius: 6px;
+  transition: background 0.15s;
+  line-height: 1.4;
+}
+
+.cc-menu-item:hover {
+  background: #fff5f3;
+  color: #e8472a;
+}
+
+.cc-menu-item.active {
+  background: #fff0ed;
+  color: #e8472a;
+  font-weight: 600;
+  border-right: 3px solid #e8472a;
+}
+
+/* ============ Dish Card ============ */
+/* row-reverse flips the visual order so the thumbnail renders on the
+   LEFT and the name/description on the RIGHT, matching the reference,
+   with zero JSX changes required */
+.cc-dish-card {
+  border-bottom: 1px solid #f0ece8;
+  padding: 16px 0;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.cc-dish-card:last-child {
+  border-bottom: none;
+}
+
+/* small veg/non-veg indicator dot shown on the corner of a dish thumbnail */
+.cc-veg-dot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  border: 1.5px solid #3d9142;
+  background: #fff;
+}
+
+.cc-veg-dot::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3d9142;
+}
+
+.cc-veg-dot.non-veg {
+  border-color: #c0392b;
+}
+
+.cc-veg-dot.non-veg::after {
+  background: #c0392b;
+}
+
+/* Add Button */
+.cc-add-btn {
+  border: 1px solid #e8472a;
+  color: #e8472a;
+  background: #fff;
+  border-radius: 6px;
+  padding: 6px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.cc-add-btn:hover {
+  background: #e8472a;
+  color: #fff;
+}
+
+/* Badge */
+.cc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #3d9142;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.cc-rating-count {
+  font-size: 11px;
+  color: #1a73e8;
+  text-align: center;
+  border-bottom: 1px dotted #1a73e8;
+  cursor: pointer;
+}
+
+/* Read More */
+.cc-read-more {
+  color: #e8472a;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ============ Search ============ */
+/* fixed 220px could overflow next to the heading on narrow layouts —
+   let it shrink instead */
+.cc-search {
+  flex: 0 1 220px;
+  min-width: 140px;
+  width: 100%;
+  padding: 8px 14px;
+  font-size: 13px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  font-family: inherit;
+}
+
+.cc-search:focus {
+  border-color: #e8472a;
+}
+
+/* Pills (Direction / Share / Reviews / Book a table) */
+.cc-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  font-size: 12px;
+  line-height: 1;
+  color: #555;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.15s;
+  background: #fff;
+}
+
+.cc-pill:hover {
+  border-color: #e8472a;
+  color: #e8472a;
+}
+
+/* ============ Image Grid ============ */
+/* 3 columns: large hero shot, a stacked pair, and a standalone
+   "View Gallery" overlay cell — the old 2-column grid had no room
+   for the 4th image shown in the reference */
+.cc-img-grid {
+  display: grid;
+  grid-template-columns: 1.7fr 0.85fr 0.85fr;
+  gap: 4px;
+  height: 180px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.cc-img-grid img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cc-img-right {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 4px;
+  height: 100%;
+}
+
+/* Image Overlay ("View Gallery") */
+.cc-overlay {
+  position: relative;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.cc-overlay-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Section Label */
+.section-label {
+  margin: 20px 0 8px;
+  padding-bottom: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #888;
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 640px) {
+  .cc-img-grid {
+    height: 140px;
+    grid-template-columns: 1.4fr 0.8fr 0.8fr;
+  }
+
+  .cc-search {
+    flex-basis: 100%;
+    margin-top: 8px;
+  }
+}

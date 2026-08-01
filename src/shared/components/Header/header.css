@@ -1,55 +1,55 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  padding: 15px 72px;
+  background-color: white;
+  gap: 10vw;
 }
 
-header {
-    display: flex;
-    align-items: center;
-    padding: 15px 72px;
-    background-color: white;
-    color: white;
-    position: fixed;
-    width: 100vw;
-    gap:10vw;
+.d-flex {
+  display: flex;
 }
 
 h1 {
-    /* font-size: 24px; */
-    color: #1d0a0a;
-    margin-left: 3rem;
+  /* font-size: 24px; */
+  color: #1d0a0a;
+  margin-left: 3rem;
+  cursor: pointer;
 }
 
 .right-section {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 select,
 input {
-    padding: 8px 10px;
-    border-radius: 5px;
-    border: none;
-    outline: none;
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
 }
 
 input {
-    width: 180px;
+  width: 180px;
 }
 
 button {
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    color: black;
-    font-weight: 500;
-    font-size: 16px;
-    background-color: unset;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  color: black;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: unset;
+  cursor: pointer;
 }
 
 /* .login {
@@ -65,7 +65,7 @@ button {
 } */
 
 button:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 /* search */
@@ -79,9 +79,9 @@ body {
   display: flex;
   align-items: center;
   background: #fff;
-  padding: 12px 16px;
+  padding: 6px 8px;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Location section */
@@ -117,6 +117,7 @@ body {
 
 /* Search */
 .search-box {
+  position: relative;
   display: flex;
   align-items: center;
   flex: 1;
@@ -137,4 +138,24 @@ body {
 /* Placeholder style */
 .search-box input::placeholder {
   color: #aaa;
+}
+
+.img-cart{
+  width: 40px;
+  height: 40px;
+}
+
+.header-cart{
+  strong{
+    color: #e23744;
+  }
+}
+
+.search-result{
+  position: absolute;
+  top: 56px;
+}
+
+.top-78{
+  top:78px !important;
 }
