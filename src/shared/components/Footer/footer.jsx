@@ -52,7 +52,7 @@ function FooterColumn({ title, links }) {
         // <a href="#" className="ftr-link" key={link}>
         //   {link}
         // </a>
-        {Link}
+        link
       ))}
     </div>
   );
