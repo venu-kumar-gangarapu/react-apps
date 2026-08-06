@@ -53,7 +53,6 @@ function FooterColumn({ title, links }) {
         //   {link}
         // </a>
         link
-        link
       ))}
     </div>
   );

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./card.css";
 import { CartProvider } from "../../shared/contexts/cartContext";
+import { getResturantMenu } from "../../shared/services/resturantServices";
 
 // Fallback gallery images used until real photo data is wired into the
 // route state. Swap these out once restaurant photo URLs exist.
@@ -25,16 +26,18 @@ export default function OrangeLoungeCard() {
   const [restaurant, setRestaurant] = useState(null);
 
   const location = useLocation();
-
+  async function getMenuList(restaurantId) {
+    const menuItem = await getResturantMenu({ id: restaurantId });
+    console.log(menuItem);
+     setMenuData(menuItem || {});
+  }
   useEffect(() => {
     const receivedData = location.state;
     if (receivedData) {
-      const { restaurantId, restaurantName, menu, ...rest } = receivedData;
-
-      setMenuData(menu || {});
+      const { _id, menu, ...rest } = receivedData;
       setRestaurant({
-        restaurantId,
-        name: restaurantName || "Restaurant",
+        _id,
+        name: rest.name || "Restaurant",
         cuisines: rest.cuisines || [],
         address: rest.location || rest.address || "",
         priceForTwo: rest.priceForTwo ?? null,
@@ -44,6 +47,10 @@ export default function OrangeLoungeCard() {
         rating: rest.rating ?? null,
         phone: rest.phone || "",
       });
+      
+      getMenuList(_id);
+      console.log(menuData);
+      // setMenuData(menu || {});
 
       const firstCategory = menu ? Object.keys(menu)[0] : null;
       setActiveMenu(firstCategory || null);
@@ -52,7 +59,7 @@ export default function OrangeLoungeCard() {
     } else {
       console.log("No state data passed or page was reloaded directly");
     }
-  }, [location]);
+  }, []);
 
   // Guard: nothing to render yet (route state hasn't arrived, or the
   // page was reloaded directly without navigation state).
@@ -202,11 +209,11 @@ export default function OrangeLoungeCard() {
               />
             </div>
 
-            {filteredSections?.map((section) => (
-              <div key={section.label}>
-                <div className="section-label">{section.label}</div>
-                {section.items.map((item, i) => {
-                  const key = `${section.label}-${i}`;
+            {/* {menuData?.items.map((section) => (
+              <div key={section.label}> */}
+                {/* <div className="section-label">{section.label}</div> */}
+                {menuData?.items.map((item, i) => {
+                  const key = `${item}-${i}`;
                   const isExpanded = expanded[key];
                   return (
                     <div key={key} className="cc-dish-card">
@@ -240,8 +247,8 @@ export default function OrangeLoungeCard() {
                     </div>
                   );
                 })}
-              </div>
-            ))}
+              {/* </div> */}
+            {/* ))} */}
 
             {filteredSections?.length === 0 && (
               <div className="cc-no-results">No items match your search.</div>

@@ -7,18 +7,18 @@ import { Resturants } from "../features/Resturants-List/resutarunt-list";
 
 export function Main() {
   const [data,setData] = useState([]);
-  const {state }  = useContext(ResturantContext);
+  const {state,getResturant }  = useContext(ResturantContext);
 
   useEffect(()=>{
-    setData(state?.viewFoodItems);
+    getResturant();
     console.log(state);
-  },[state]);
+  },[]);
 
   return (
     <div className="main-container">
       <Banner/>
       <CarouselCard/>
-      <Resturants data={data}/>
+      <Resturants data={state?.viewFoodItems}/>
     </div>
   );
 }

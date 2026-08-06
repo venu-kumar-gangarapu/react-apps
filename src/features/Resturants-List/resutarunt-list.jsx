@@ -8,8 +8,7 @@ export function Resturants({data}){
   console.log(location.state?.name);
     let navigate = useNavigate();
     const goToItem = (index)=>{
-    console.log(index);
-    navigate("/food-item",{ state: collections[index]?.menuData });
+    navigate("/food-item",{ state: index || [] });
   }
     return(
         <div className="m-116">
@@ -17,7 +16,7 @@ export function Resturants({data}){
         <Filter/>
         <div className="grid mt-3">
         {collections.map((data, index) => (
-          <div className="card" key={index} onClick={()=>goToItem(index)}>
+          <div className="card" key={index} onClick={()=>goToItem(data)}>
             <div className="image-container">
               <img src={data.image} alt={data.name} />
 

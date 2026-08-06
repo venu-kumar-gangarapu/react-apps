@@ -25,6 +25,8 @@ function filterReducer(state,action){
             return {...state, search:getSearchData(action?.payload)};
         case "search Location" :    
             return {...state};
+        case "resturants" :    
+            return {viewFoodItems : action.payload};
         default:
             return initialState
     }
