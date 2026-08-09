@@ -3,11 +3,14 @@
   top: 0;
   z-index: 1000;
   background: #fff;
+  padding: 20px 72px 15px;
+  background-color: white;
+}
+
+.header-top {
+  gap: 10vw;
   display: flex;
   align-items: center;
-  padding: 15px 72px;
-  background-color: white;
-  gap: 10vw;
 }
 
 .d-flex {
@@ -19,6 +22,12 @@ h1 {
   color: #1d0a0a;
   margin-left: 3rem;
   cursor: pointer;
+}
+
+.left-section {
+
+  display: block;
+  width: max-content;
 }
 
 .right-section {
@@ -140,22 +149,140 @@ body {
   color: #aaa;
 }
 
-.img-cart{
+.img-cart {
   width: 40px;
   height: 40px;
 }
 
-.header-cart{
-  strong{
+.header-cart {
+  display: flex;
+
+  strong {
     color: #e23744;
   }
 }
 
-.search-result{
+.search-result {
   position: absolute;
   top: 56px;
 }
 
-.top-78{
-  top:78px !important;
+.top-78 {
+  top: 78px !important;
+}
+
+.mobile-profile {
+  display: none;
+}
+
+@media (max-width:1024px) {
+
+  .header {
+    padding: 15px 25px;
+    gap: 25px;
+  }
+
+  .search-container {
+    width: 45vw;
+  }
+
+}
+
+@media (max-width:768px) {
+
+  .header {
+    display: block;
+    padding: 12px 16px;
+  }
+
+  .header-top {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .header h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+
+  .left-section {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .right-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .mobile-profile {
+    display: flex;
+    position: absolute;
+    right: 18px;
+    top: 8px;
+    font-size: 28px;
+    cursor: pointer;
+  }
+
+  /* Hide desktop buttons */
+
+  .login,
+  .signup,
+  .header-cart {
+    display: none !important;
+  }
+
+  /* location only */
+
+  .search-container {
+    width: 100%;
+    flex-direction: column;
+    box-shadow: none;
+    padding: 0;
+    background: transparent;
+    align-items: stretch;
+  }
+
+  .location {
+    width: 100%;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .search-box {
+    margin-top: 12px;
+    width: 100%;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+  }
+
+  .search-box form {
+    width: 100%;
+  }
+
+  .search-box input {
+    width: 100%;
+  }
+
+  .location input {
+    width: 100%;
+  }
+
+  .search-result {
+    width: 100%;
+    left: 0;
+  }
+
 }

@@ -235,7 +235,7 @@ export default function OrangeLoungeCard() {
                       <div className="cc-dish-actions">
                         <div className="cc-dish-img-wrap">
                           <img
-                            src={item.img || `https://images.unsplash.com/photo-${1567620905732 + i * 11111}?w=160&q=70`}
+                            src={item.image}
                             alt={item.name}
                             className="cc-dish-img"
                             onError={(e) => { e.target.style.display = "none"; }}

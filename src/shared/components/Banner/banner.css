@@ -2,29 +2,28 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding:40px 72px;
-  background: linear-gradient(
-    135deg,
-    #ffecd2,
-    #fcb69f
-  );
+  padding: 40px 72px;
+  margin: 0 116px;
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
   border-radius: 20px;
-  margin:0px 116px;
+  gap: 40px;
 }
 
 .banner-content {
-  width: 50%;
+  flex: 1;
 }
 
 .banner-content h1 {
   font-size: 3rem;
-  margin:0px 0px 20px 0px;
+  margin: 0 0 20px;
+  line-height: 1.2;
 }
 
 .banner-content p {
   font-size: 18px;
   color: #555;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  line-height: 1.6;
 }
 
 .banner-content button {
@@ -37,7 +36,100 @@
   font-size: 16px;
 }
 
+.banner-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
 .banner-image img {
-  width: 450px;
+  width: 100%;
+  max-width: 450px;
   border-radius: 20px;
+  object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+  .banner {
+    margin: 0 40px;
+    padding: 30px;
+    gap: 24px;
+  }
+
+  .banner-content h1 {
+    font-size: 2.3rem;
+  }
+
+  .banner-content p {
+    font-size: 16px;
+  }
+
+  .banner-image img {
+    max-width: 340px;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner {
+    flex-direction: column-reverse;
+    text-align: center;
+    margin: 0 16px;
+    padding: 24px 18px;
+    gap: 20px;
+    border-radius: 16px;
+    margin:0px  10vw !important
+  }
+
+  .banner-content {
+    width: 100%;
+  }
+
+  .banner-content h1 {
+    font-size: 2rem;
+  }
+
+  .banner-content p {
+    font-size: 15px;
+    margin-bottom: 18px;
+  }
+
+  .banner-content button {
+    width: 100%;
+    max-width: 250px;
+    padding: 12px;
+  }
+
+  .banner-image {
+    width: 100%;
+  }
+
+  .banner-image img {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+    margin: 0 10px;
+    padding: 18px 14px;
+  }
+
+  .banner-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .banner-content p {
+    font-size: 14px;
+  }
+
+  .banner-content button {
+    width: 100%;
+    max-width: none;
+    font-size: 15px;
+  }
+
+  .banner-image img {
+    max-width: 260px;
+  }
 }
