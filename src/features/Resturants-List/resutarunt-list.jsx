@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import Filter from "../../shared/components/Filter/filter";
+import "./restarunt.css";
 
 export function Resturants({data}){
   const location = useLocation();
@@ -11,7 +12,7 @@ export function Resturants({data}){
     navigate("/food-item",{ state: index || [] });
   }
     return(
-        <div className="m-116">
+        <div className="resturant-grid">
         {getCollectionName && <h2>{getCollectionName}</h2>}
         <Filter/>
         <div className="grid mt-3">
@@ -31,7 +32,7 @@ export function Resturants({data}){
                 <span className="price">₹{data.priceForTwo} for two</span>
               </div>
 
-              <p className="cuisines">{data.cuisines}</p>
+              {/* <p className="cuisines">{data.cuisines}</p> */}
 
               <div className="footer">
                 <span>{data.location}</span>

@@ -1,15 +1,5 @@
-.main-container {
-  margin-top: 20px;
-  width: 100%;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 298px));
-  justify-content: center;
-  gap: 24px;
-  padding: 20px 0;
-  background-color: #fbfbff;
+.resturant-grid{
+    margin: 0px 116px;
 }
 
 .card {
@@ -117,13 +107,16 @@
 }
 
 @media (max-width: 768px) {
+    .resturant-grid{
+    margin: 0px 20px;
+}
   .main-container {
     margin-top: 10px;
   }
 
   .grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 8px;
     padding: 12px 0;
   }
 
@@ -167,3 +160,4 @@
     align-items: flex-start;
   }
 }
+
