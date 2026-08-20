@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://localhost:8080/ordernowApi/v1",
+    baseURL: "https://order-now-app-api.onrender.com/ordernowApi/v1",
 });
 
 export default api;
