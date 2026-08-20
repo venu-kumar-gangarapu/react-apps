@@ -1,8 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useReducer, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./card.css";
 import { CartProvider } from "../../shared/contexts/cartContext";
 import { getResturantMenu } from "../../shared/services/resturantServices";
+import { DialogBoxContext } from "../../shared/contexts/dialogContext";
 
 // Fallback gallery images used until real photo data is wired into the
 // route state. Swap these out once restaurant photo URLs exist.
@@ -18,18 +19,19 @@ export default function OrangeLoungeCard() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [search, setSearch] = useState("");
   const [expanded, setExpanded] = useState({});
-  const {dispatch} = useContext(CartProvider);
+  const { cart,dispatch } = useContext(CartProvider);
 
   // menuData holds only the category map (the `.menu` object) —
   // never the {restaurantId, restaurantName, menu} wrapper.
   const [menuData, setMenuData] = useState(null);
   const [restaurant, setRestaurant] = useState(null);
+  const {dialogState,dispatchDialog} = useContext(DialogBoxContext)
 
   const location = useLocation();
   async function getMenuList(restaurantId) {
     const menuItem = await getResturantMenu({ id: restaurantId });
     console.log(menuItem);
-     setMenuData(menuItem || {});
+    setMenuData(menuItem || {});
   }
   useEffect(() => {
     const receivedData = location.state;
@@ -47,7 +49,7 @@ export default function OrangeLoungeCard() {
         rating: rest.rating ?? null,
         phone: rest.phone || "",
       });
-      
+
       getMenuList(_id);
       console.log(menuData);
       // setMenuData(menu || {});
@@ -59,7 +61,27 @@ export default function OrangeLoungeCard() {
     } else {
       console.log("No state data passed or page was reloaded directly");
     }
-  }, []);
+    console.log(dialogState,cart);
+  }, [dialogState]);
+
+  const addToCart=(item)=>{
+    if(cart.currentRestarunt === restaurant.name || cart.currentRestarunt === '' ){
+      dispatch({ type: "Add to Cart", payload: { item, restaurant: restaurant.name } });
+      dispatch({ type: 'total cart value' });
+    }else{
+      console.log('not same resturant');
+      dispatchDialog({
+        type: "OPEN_DIALOG",
+        payload: {
+          title: "not same resturant",
+          message: "not same resturant",
+          onConfirm: "OK",
+          cartItem: { item, restaurant: restaurant.name }
+        },
+      });
+    }
+
+  }
 
   // Guard: nothing to render yet (route state hasn't arrived, or the
   // page was reloaded directly without navigation state).
@@ -176,9 +198,9 @@ export default function OrangeLoungeCard() {
       </div> */}
 
       {/* Body */}
-        <div>
-          {/* Left sidebar */}
-          {/* <div style={{ borderRight: "1px solid #f0ece8", padding: "14px 0" }}>
+      <div>
+        {/* Left sidebar */}
+        {/* <div style={{ borderRight: "1px solid #f0ece8", padding: "14px 0" }}>
             {Object.entries(menuData).map(([name, data]) => (
               <div
                 key={name}
@@ -190,71 +212,71 @@ export default function OrangeLoungeCard() {
             ))}
           </div> */}
 
-          {/* Right content */}
-          <div className="cc-content">
-            <div className="cc-section-header">
-              <div>
-                <h2 className="cc-menu-title">{activeMenu}</h2>
-                <div className="cc-live-track">
-                  <span>🔴 Live track your order</span>
-                  <span>|</span>
-                  <span>⏱ 35 min</span>
+        {/* Right content */}
+        <div className="cc-content">
+          <div className="cc-section-header">
+            <div>
+              <h2 className="cc-menu-title">{activeMenu}</h2>
+              <div className="cc-live-track">
+                <span>🔴 Live track your order</span>
+                <span>|</span>
+                <span>⏱ 35 min</span>
+              </div>
+            </div>
+            <input
+              className="cc-search"
+              placeholder="🔍 Search within menu"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
+
+          {/* {menuData?.items.map((section) => (
+              <div key={section.label}> */}
+          {/* <div className="section-label">{section.label}</div> */}
+          {menuData?.items.map((item, i) => {
+            const key = `${item}-${i}`;
+            const isExpanded = expanded[key];
+            return (
+              <div key={key} className="cc-dish-card">
+                <div className="cc-dish-info">
+                  <div className="cc-dish-name-row">
+                    <span className="cc-veg-icon">
+                      <span className="cc-veg-icon-dot" />
+                    </span>
+                    <span className="cc-dish-name">{item.name}</span>
+                  </div>
+                  <p className="cc-dish-desc">
+                    {isExpanded ? item.desc : item.desc.slice(0, 70) + "..."}
+                    <span className="cc-read-more" onClick={() => toggleExpand(key)}>
+                      {" "}{isExpanded ? "show less" : "read more"}
+                    </span>
+                  </p>
+                  <p className="cc-dish-price">₹ {item.price}</p>
+                </div>
+                <div className="cc-dish-actions">
+                  <div className="cc-dish-img-wrap">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="cc-dish-img"
+                      onError={(e) => { e.target.style.display = "none"; }}
+                    />
+                    <div className="cc-veg-dot" />
+                  </div>
+                  <button className="cc-add-btn" onClick={() => addToCart(item)}>ADD</button>
                 </div>
               </div>
-              <input
-                className="cc-search"
-                placeholder="🔍 Search within menu"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
-            </div>
+            );
+          })}
+          {/* </div> */}
+          {/* ))} */}
 
-            {/* {menuData?.items.map((section) => (
-              <div key={section.label}> */}
-                {/* <div className="section-label">{section.label}</div> */}
-                {menuData?.items.map((item, i) => {
-                  const key = `${item}-${i}`;
-                  const isExpanded = expanded[key];
-                  return (
-                    <div key={key} className="cc-dish-card">
-                      <div className="cc-dish-info">
-                        <div className="cc-dish-name-row">
-                          <span className="cc-veg-icon">
-                            <span className="cc-veg-icon-dot" />
-                          </span>
-                          <span className="cc-dish-name">{item.name}</span>
-                        </div>
-                        <p className="cc-dish-desc">
-                          {isExpanded ? item.desc : item.desc.slice(0, 70) + "..."}
-                          <span className="cc-read-more" onClick={() => toggleExpand(key)}>
-                            {" "}{isExpanded ? "show less" : "read more"}
-                          </span>
-                        </p>
-                        <p className="cc-dish-price">₹ {item.price}</p>
-                      </div>
-                      <div className="cc-dish-actions">
-                        <div className="cc-dish-img-wrap">
-                          <img
-                            src={item.image}
-                            alt={item.name}
-                            className="cc-dish-img"
-                            onError={(e) => { e.target.style.display = "none"; }}
-                          />
-                          <div className="cc-veg-dot" />
-                        </div>
-                        <button className="cc-add-btn" onClick={()=>{dispatch({type:"Add to Cart",payload:{item,restaurant:restaurant.name}}); dispatch({type:'total cart value'});}}>ADD</button>
-                      </div>
-                    </div>
-                  );
-                })}
-              {/* </div> */}
-            {/* ))} */}
-
-            {filteredSections?.length === 0 && (
-              <div className="cc-no-results">No items match your search.</div>
-            )}
-          </div>
+          {filteredSections?.length === 0 && (
+            <div className="cc-no-results">No items match your search.</div>
+          )}
         </div>
+      </div>
 
       {/* {activeTab !== "Order Online" && (
         <div style={{ padding: 40, textAlign: "center", color: "#aaa", fontSize: 14 }}>

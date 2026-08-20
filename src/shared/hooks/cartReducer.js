@@ -12,7 +12,9 @@ function cartReducer(state,action){
             console.log(removeItem(state,action.payload.index));
             return {...state , cartSize : state.cartSize - 1 , cartItem : [...removeItem(state,action.payload.index)],totalCartValue:getCartValue(state)}
         case "total cart value":
-            return {...state,totalCartValue:getCartValue(state)}
+            return {...state,totalCartValue:getCartValue(state)};
+        case "empty cart":
+            return {...initialCart}
         default:
             break;
     }
