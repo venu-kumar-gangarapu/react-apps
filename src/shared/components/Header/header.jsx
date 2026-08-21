@@ -4,11 +4,14 @@ import "./header.css";
 import { CartProvider } from "../../contexts/cartContext";
 import ResultCard from "../Result-Card/resultCard";
 import { ResturantContext } from "../../contexts/filterContext";
+import { useSelector } from "react-redux";
 
 function Header({ isLogin }) {
   const navigate = useNavigate();
   const { cart } = useContext(CartProvider);
   const { state, dispatch } = useContext(ResturantContext);
+  const { success, token, user } = useSelector((state) => state.auth);
+
   // const [openLogin, setOpenLogin] = useState(false);
   const [search, setSearch] = useState("");
   const [loaction, setLoaction] = useState("Kolkata");
@@ -37,8 +40,8 @@ function Header({ isLogin }) {
     dispatch({ type: "search Resuturant", payload: search });
   };
   useEffect(() => {
-    console.log(cart.cartSize);
-  }, [cart]);
+    console.log(user,token);
+  }, [cart,user]);
 
   return (
     <>
@@ -116,9 +119,16 @@ function Header({ isLogin }) {
               </div>
             </div>
 
-            <button className="login" onClick={handleLogin}>
-              Login
-            </button>
+            {!user && (
+              <button className="login" onClick={handleLogin}>
+                Login
+              </button>
+            )}
+            {user && (
+              <button className="login" onClick={handleLogin}>
+                Logout
+              </button>
+            )}
 
             <button className="signup" onClick={handleSignUp}>
               Sign Up

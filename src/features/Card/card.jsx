@@ -19,13 +19,13 @@ export default function OrangeLoungeCard() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [search, setSearch] = useState("");
   const [expanded, setExpanded] = useState({});
-  const { cart,dispatch } = useContext(CartProvider);
+  const { cart, dispatch } = useContext(CartProvider);
 
   // menuData holds only the category map (the `.menu` object) —
   // never the {restaurantId, restaurantName, menu} wrapper.
   const [menuData, setMenuData] = useState(null);
   const [restaurant, setRestaurant] = useState(null);
-  const {dialogState,dispatchDialog} = useContext(DialogBoxContext)
+  const { dialogState, dispatchDialog } = useContext(DialogBoxContext)
 
   const location = useLocation();
   async function getMenuList(restaurantId) {
@@ -61,22 +61,31 @@ export default function OrangeLoungeCard() {
     } else {
       console.log("No state data passed or page was reloaded directly");
     }
-    console.log(dialogState,cart);
+    console.log(dialogState, cart);
   }, [dialogState]);
 
-  const addToCart=(item)=>{
-    if(cart.currentRestarunt === restaurant.name || cart.currentRestarunt === '' ){
+  const addToCart = (item) => {
+    if (cart.currentRestarunt === restaurant.name || cart.currentRestarunt === '') {
       dispatch({ type: "Add to Cart", payload: { item, restaurant: restaurant.name } });
       dispatch({ type: 'total cart value' });
-    }else{
+    } else {
       console.log('not same resturant');
       dispatchDialog({
-        type: "OPEN_DIALOG",
+        type: "CART_OPEN_DIALOG",
         payload: {
           title: "not same resturant",
           message: "not same resturant",
-          onConfirm: "OK",
-          cartItem: { item, restaurant: restaurant.name }
+          onConfirm: () => {
+            dispatch({ type: "empty cart" });
+            dispatch({
+              type: "Add to Cart",
+              payload: {
+                item,
+                restaurant: restaurant.name
+              }
+            });
+          },
+          // cartItem: { item, restaurant: restaurant.name }
         },
       });
     }

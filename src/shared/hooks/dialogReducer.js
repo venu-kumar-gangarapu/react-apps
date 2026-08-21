@@ -16,7 +16,14 @@ function dialogReducer(state, action) {
                 title: action.payload.title,
                 message: action.payload.message,
                 onConfirm: action.payload.onConfirm,
-                cartItem:{ item : action.payload.cartItem.item, restaurant: action.payload.cartItem.restaurant }
+            };
+        case "CART_OPEN_DIALOG":
+            return {
+                open: true,
+                title: action.payload.title,
+                message: action.payload.message,
+                onConfirm: action.payload.onConfirm,
+                // cartItem:{ item : action.payload.cartItem.item, restaurant: action.payload.cartItem.restaurant }
             };
         case "CLOSE_DIALOG":
             return dialogBoxState;

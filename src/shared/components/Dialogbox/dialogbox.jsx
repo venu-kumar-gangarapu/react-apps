@@ -8,14 +8,15 @@ export default function Dialog() {
   const { cart,dispatch } = useContext(CartProvider);
   if (!dialogState.open) return null;
 
-  const confirm =()=>{
-    dispatchDialog({type:"CONFIRM"});
-    // dispatchDialog({type:'remove cart items'});
-    dispatch({type : 'empty cart'});
-    console.log(dialogState,cart);
-    debugger
-    dispatch({ type: "Add to Cart", payload: { item : dialogState.cartItem.item, restaurant: dialogState.cartItem.restaurant } });
-  }
+  const confirm = () => {
+    if (dialogState.onConfirm) {
+      dialogState.onConfirm();
+    }
+
+    dispatchDialog({
+      type: "CLOSE_DIALOG",
+    });
+  };
 
   return (
     <div className="dialog-overlay">
