@@ -12,6 +12,14 @@ export default function Cart() {
   const removeItem = (index) => {
     dispatch({ type: "Remove from Cart", payload: { index } });
   };
+
+  const orderNow = ()=>{
+    let amount = 500;
+    let orderId = 200789876;
+    let url = 'https://payment-gate-way-murex.vercel.app/'
+    window.location.href =
+  `https://payment-gate-way-murex.vercel.app/payment?orderId=${orderId}&amount=${amount}`;
+  }
   useEffect(() => {
     console.log(cart);
   }, [cart]);
@@ -54,7 +62,7 @@ export default function Cart() {
               <span>₹{cart.totalCartValue + 40}</span>
             </div>
 
-            <button>Proceed To Checkout</button>
+            <button onClick={orderNow}>Proceed To Checkout</button>
           </div>
         )}
       </div>
