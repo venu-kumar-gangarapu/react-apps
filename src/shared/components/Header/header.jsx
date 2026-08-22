@@ -4,14 +4,16 @@ import "./header.css";
 import { CartProvider } from "../../contexts/cartContext";
 import ResultCard from "../Result-Card/resultCard";
 import { ResturantContext } from "../../contexts/filterContext";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../slices/authSlice";
 
 function Header({ isLogin }) {
   const navigate = useNavigate();
   const { cart } = useContext(CartProvider);
   const { state, dispatch } = useContext(ResturantContext);
-  const { success, token, user } = useSelector((state) => state.auth);
-
+  const {isLoggedin} = useSelector((state) => state.auth);
+  const dispatchRedux = useDispatch();
+  const [showLogout, setShowLogout] = useState(false);
   // const [openLogin, setOpenLogin] = useState(false);
   const [search, setSearch] = useState("");
   const [loaction, setLoaction] = useState("Kolkata");
@@ -40,8 +42,8 @@ function Header({ isLogin }) {
     dispatch({ type: "search Resuturant", payload: search });
   };
   useEffect(() => {
-    console.log(user,token);
-  }, [cart,user]);
+    console.log(isLoggedin);
+  }, [cart, isLoggedin]);
 
   return (
     <>
@@ -118,21 +120,51 @@ function Header({ isLogin }) {
                 )}
               </div>
             </div>
+            {/* {token} */}
+            {!isLoggedin &&
+              <>
+                <button className="login" onClick={handleLogin}>
+                  Login
+                </button>
+                <button className="signup" onClick={handleSignUp}>
+                  Sign Up
+                </button>
+              </>
+            }
+            {isLoggedin && (
+              <div className="logout-container">
 
-            {!user && (
-              <button className="login" onClick={handleLogin}>
-                Login
-              </button>
-            )}
-            {user && (
-              <button className="login" onClick={handleLogin}>
-                Logout
-              </button>
+                <button
+                  className="login"
+                  onClick={() => setShowLogout(!showLogout)}
+                >
+                  Logout
+                </button>
+
+                {showLogout && (
+                  <div className="logout-box">
+
+                    <p>Are you sure you want to logout?</p>
+
+                    <div className="logout-actions">
+                      <button
+                        onClick={() => {
+                          dispatchRedux(logout());
+                          setShowLogout(false);
+                          navigate("/login");
+                        }}
+                      >
+                        Logout
+                      </button>
+
+                    </div>
+
+                  </div>
+                )}
+
+              </div>
             )}
 
-            <button className="signup" onClick={handleSignUp}>
-              Sign Up
-            </button>
 
             <div className="header-cart align-items-center">
               <button className="signup pe-1" onClick={goToCart}>

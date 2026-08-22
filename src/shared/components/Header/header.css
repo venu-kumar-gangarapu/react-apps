@@ -286,3 +286,36 @@ body {
   }
 
 }
+
+.logout-container {
+  position: relative;
+}
+
+.logout-box {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  width: 230px;
+  padding: 16px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.logout-box p {
+  margin: 0 0 15px;
+}
+
+.logout-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.logout-actions button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

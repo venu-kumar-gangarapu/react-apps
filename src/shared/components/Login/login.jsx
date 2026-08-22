@@ -59,11 +59,8 @@ export default function Login() {
 
 
   const submit = (e) => {
-
     e.preventDefault();
-
     dispatch(loginUser(user));
-
   };
 
 
