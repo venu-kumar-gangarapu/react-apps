@@ -319,3 +319,118 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
+
+/* =========================
+   MOBILE SIDEBAR
+========================= */
+
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  z-index: 1999;
+}
+
+.mobile-sidebar {
+  position: fixed;
+
+  top: 0;
+  right: 0;
+
+  width: 300px;
+  height: 100vh;
+
+  background: #fff;
+
+  z-index: 2000;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.15);
+
+  animation: slideSidebar 0.25s ease;
+}
+
+@keyframes slideSidebar {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+/* Sidebar Header */
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 20px;
+
+  border-bottom: 1px solid #eee;
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.sidebar-close {
+  font-size: 20px;
+
+  padding: 5px 8px;
+
+  cursor: pointer;
+}
+
+
+/* Sidebar Items */
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 16px 10px;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  border-radius: 8px;
+}
+
+.sidebar-item:hover {
+  background: #f5f5f5;
+}
+
+.sidebar-item span:first-child {
+  width: 25px;
+  text-align: center;
+}
+
+
+/* Divider */
+
+.sidebar-divider {
+  height: 1px;
+  background: #eee;
+
+  margin: 10px 0;
+}
+
+
+/* Logout */
+
+.logout-item {
+  color: #e23744;
+}
