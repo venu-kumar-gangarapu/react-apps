@@ -4,6 +4,7 @@ import "./card.css";
 import { CartProvider } from "../../shared/contexts/cartContext";
 import { getResturantMenu } from "../../shared/services/resturantServices";
 import { DialogBoxContext } from "../../shared/contexts/dialogContext";
+import Loader from "../../shared/components/Loader/loader";
 
 // Fallback gallery images used until real photo data is wired into the
 // route state. Swap these out once restaurant photo URLs exist.
@@ -16,22 +17,21 @@ const galleryImages = [
 
 
 export default function OrangeLoungeCard() {
+  const [loader,setLoader] = useState(true);
   const [activeMenu, setActiveMenu] = useState(null);
   const [search, setSearch] = useState("");
   const [expanded, setExpanded] = useState({});
   const { cart, dispatch } = useContext(CartProvider);
-
-  // menuData holds only the category map (the `.menu` object) —
-  // never the {restaurantId, restaurantName, menu} wrapper.
   const [menuData, setMenuData] = useState(null);
   const [restaurant, setRestaurant] = useState(null);
   const { dialogState, dispatchDialog } = useContext(DialogBoxContext)
-
   const location = useLocation();
   async function getMenuList(restaurantId) {
+    setLoader(false);
     const menuItem = await getResturantMenu({ id: restaurantId });
     console.log(menuItem);
     setMenuData(menuItem || {});
+    setLoader(true);
   }
   useEffect(() => {
     const receivedData = location.state;
@@ -65,8 +65,8 @@ export default function OrangeLoungeCard() {
   }, [dialogState]);
 
   const addToCart = (item) => {
-    if (cart.currentRestarunt === restaurant.name || cart.currentRestarunt === '') {
-      dispatch({ type: "Add to Cart", payload: { item, restaurant: restaurant.name } });
+    if (cart.currentRestarunt === restaurant?.name || cart.currentRestarunt === '') {
+      dispatch({ type: "Add to Cart", payload: { item, restaurant: restaurant?.name } });
       dispatch({ type: 'total cart value' });
     } else {
       console.log('not same resturant');
@@ -81,11 +81,11 @@ export default function OrangeLoungeCard() {
               type: "Add to Cart",
               payload: {
                 item,
-                restaurant: restaurant.name
+                restaurant: restaurant?.name
               }
             });
           },
-          // cartItem: { item, restaurant: restaurant.name }
+          // cartItem: { item, restaurant: restaurant?.name }
         },
       });
     }
@@ -94,13 +94,13 @@ export default function OrangeLoungeCard() {
 
   // Guard: nothing to render yet (route state hasn't arrived, or the
   // page was reloaded directly without navigation state).
-  if (!menuData || !restaurant) {
-    return (
-      <div className="cc-empty-state">
-        No menu data found. Please navigate here from the restaurant list.
-      </div>
-    );
-  }
+  // if (!menuData || !restaurant) {
+  //   return (
+  //     <div className="cc-empty-state">
+  //       No menu data found. Please navigate here from the restaurant list.
+  //     </div>
+  //   );
+  // }
 
   const currentSection = activeMenu ? menuData[activeMenu] : null;
   const filteredSections = currentSection?.sections
@@ -119,28 +119,30 @@ export default function OrangeLoungeCard() {
     setExpanded((prev) => ({ ...prev, [key]: !prev[key] }));
 
   return (
-    <div className="cc-page">
+    <>
+    {!loader&& <Loader/>}
+    {loader && <div className="cc-page">
       {/* Header */}
       <div className="cc-header">
         <div className="cc-header-top">
           <div>
             <h1 className="cc-title">
-              {restaurant.name}
+              {restaurant?.name}
             </h1>
             <p className="cc-cuisines">
-              {restaurant.cuisines.join(", ")}
+              {restaurant?.cuisines.join(", ")}
             </p>
-            <p className="cc-address">{restaurant.address}</p>
+            <p className="cc-address">{restaurant?.address}</p>
           </div>
           <div className="cc-badge-wrap">
-            {restaurant.rating ? (
+            {restaurant?.rating ? (
               <div className="cc-rating-box">
-                <span className="cc-badge">{restaurant.rating} ★</span>
+                <span className="cc-badge">{restaurant?.rating} ★</span>
                 <div className="cc-rating-sublabel">Dining Rating</div>
               </div>
-            ) : restaurant.offer ? (
+            ) : restaurant?.offer ? (
               <div className="cc-offer-box">
-                <span className="cc-badge cc-badge-offer">{restaurant.offer}</span>
+                <span className="cc-badge cc-badge-offer">{restaurant?.offer}</span>
                 <div className="cc-rating-sublabel">Just opened</div>
               </div>
             ) : (
@@ -153,23 +155,23 @@ export default function OrangeLoungeCard() {
 
         {/* Info bar */}
         <div className="cc-info-bar cc-info-bar--spaced">
-          {restaurant.openingTime && <span className="cc-closing">Opens {restaurant.openingTime}</span>}
-          {restaurant.priceForTwo != null && (
+          {restaurant?.openingTime && <span className="cc-closing">Opens {restaurant?.openingTime}</span>}
+          {restaurant?.priceForTwo != null && (
             <>
               <span>|</span>
-              <span>₹{Number(restaurant.priceForTwo).toLocaleString("en-IN")} for two</span>
+              <span>₹{Number(restaurant?.priceForTwo).toLocaleString("en-IN")} for two</span>
             </>
           )}
-          {restaurant.distance && (
+          {restaurant?.distance && (
             <>
               <span>|</span>
-              <span>{restaurant.distance} away</span>
+              <span>{restaurant?.distance} away</span>
             </>
           )}
-          {restaurant.phone && (
+          {restaurant?.phone && (
             <>
               <span>|</span>
-              <span className="cc-phone">📞 {restaurant.phone}</span>
+              <span className="cc-phone">📞 {restaurant?.phone}</span>
             </>
           )}
         </div>
@@ -185,7 +187,7 @@ export default function OrangeLoungeCard() {
 
         {/* Photo grid */}
         <div className="cc-img-grid cc-img-grid--spaced">
-          <img src={galleryImages[0]} alt={restaurant.name} />
+          <img src={galleryImages[0]} alt={restaurant?.name} />
           <div className="cc-img-right">
             <img src={galleryImages[1]} alt="interior" />
             <img src={galleryImages[2]} alt="dish" />
@@ -292,6 +294,7 @@ export default function OrangeLoungeCard() {
           {activeTab} content would appear here.
         </div>
       )} */}
-    </div>
+    </div>}
+    </>
   );
 }
