@@ -155,7 +155,7 @@ function Header({ isLogin }) {
               <div className="search-container">
                 <div className="location position-relative">
                   <span className="icon">📍</span>
-
+                  <div className="select-location">
                   <span className="city">
                     <input
                       value={editing ? loaction : ""}
@@ -180,6 +180,7 @@ function Header({ isLogin }) {
                   </span>
 
                   <span className="dropdown">▼</span>
+                  </div>
                 </div>
 
                 {loaction.length > 0 && editing && (

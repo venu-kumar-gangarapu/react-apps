@@ -114,6 +114,7 @@ body {
 .dropdown {
   font-size: 12px;
   color: #777;
+  cursor: pointer;
 }
 
 /* Divider */
@@ -253,10 +254,29 @@ body {
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+    input{
+      width: 100%;
+    }
   }
 
+  .select-location{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100;
+  }
+
+  .city{
+    width: 100%;
+  }
   .divider {
     display: none;
+  }
+
+  .top-78{
+    top: 7.2rem !important;
+    left: 20px;
+    z-index: 1;
   }
 
   .search-box {
