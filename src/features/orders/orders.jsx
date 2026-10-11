@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./orders.css";
+import { getOrders } from "../../shared/services/orders";
 
 const orderData = [
   {
@@ -47,6 +48,11 @@ export default function Orders() {
     setExpandedOrder(expandedOrder === orderId ? null : orderId);
   };
   useEffect(() => {
+    async function getOrder (){
+      const data = await getOrders();
+      console.log(data);
+    }
+    getOrder();
     setOrders(orderData);
   }, []);
 

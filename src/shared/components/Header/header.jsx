@@ -156,30 +156,30 @@ function Header({ isLogin }) {
                 <div className="location position-relative">
                   <span className="icon">📍</span>
                   <div className="select-location">
-                  <span className="city">
-                    <input
-                      value={editing ? loaction : ""}
-                      placeholder={
-                        editing
-                          ? "Search location..."
-                          : loaction || "Search location"
-                      }
-                      onFocus={() => {
-                        setLoaction("");
-                        setEditing(true);
-                      }}
-                      onBlur={() => {
-                        if (loaction === "") {
-                          setEditing(false);
-                          setLoaction("Kolkata");
+                    <span className="city">
+                      <input
+                        value={editing ? loaction : ""}
+                        placeholder={
+                          editing
+                            ? "Search location..."
+                            : loaction || "Search location"
                         }
-                      }}
-                      type="text"
-                      onChange={(e) => setLoaction(e.target.value)}
-                    />
-                  </span>
+                        onFocus={() => {
+                          setLoaction("");
+                          setEditing(true);
+                        }}
+                        onBlur={() => {
+                          if (loaction === "") {
+                            setEditing(false);
+                            setLoaction("Kolkata");
+                          }
+                        }}
+                        type="text"
+                        onChange={(e) => setLoaction(e.target.value)}
+                      />
+                    </span>
 
-                  <span className="dropdown">▼</span>
+                    <span className="dropdown">▼</span>
                   </div>
                 </div>
 
@@ -257,7 +257,6 @@ function Header({ isLogin }) {
                   )}
                 </div>
               )}
-
               <div className="header-cart align-items-center">
                 <button className="signup pe-1" onClick={goToCart}>
                   Cart
@@ -267,6 +266,13 @@ function Header({ isLogin }) {
                   (<strong>{cart?.cartSize}</strong>)
                 </p>
               </div>
+              {isLoggedin && 
+                  <div
+                onClick={() => setShowMobileMenu(true)}
+              >
+                👤
+              </div>
+              }
             </div>
           </div>
         </header>

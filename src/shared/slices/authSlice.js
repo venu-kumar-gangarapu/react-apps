@@ -39,6 +39,7 @@ const authSlice = createSlice({
       state.success = false;
       state.error = null;
       state.isLoggedin =false;
+      sessionStorage.clear();
     },
     clearError: (state) => {
       state.error = null;

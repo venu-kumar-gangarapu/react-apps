@@ -1,6 +1,6 @@
 import "./App.css";
 import { Main } from "./Main/main";
-import Card from "./features/Card/card"
+import Card from "./features/Card/card";
 import { Route, Routes } from "react-router-dom";
 import Login from "./shared/components/Login/login";
 import SignUp from "./shared/components/Sign Up/signup";
@@ -8,19 +8,21 @@ import Cart from "./features/cart/cart";
 import Orders from "./features/orders/orders";
 import { Resturants } from "./features/Resturants-List/resutarunt-list";
 import Profile from "./features/Profile/profile";
-
+import ProtectedRoute from "./shared/protectedRoutes";
 export default function AppRotes() {
-    return (
-        <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/food-item" element={<Card />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/sign-up" element={<SignUp />} />
-            <Route path="/home" element={<Main />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/collections" element={<Resturants />} />
-            <Route path="/profile" element={<Profile />} />
-        </Routes>
-    )
+  return (
+    <Routes>
+      <Route path="/" element={<Main />} />
+      <Route path="/food-item" element={<Card />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/sign-up" element={<SignUp />} />
+      <Route path="/home" element={<Main />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/collections" element={<Resturants />} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="/orders" element={<Orders />} />
+        <Route path="/profile" element={<Profile />} />
+      </Route>
+    </Routes>
+  );
 }
