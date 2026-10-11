@@ -97,6 +97,26 @@ function cartReducer(state, action) {
             };
         }
 
+        case "Increment Qty": {
+            const { index } = action.payload;
+            if (index < 0 || index >= state.cartItem.length) return state;
+
+            const updatedCartItem = state.cartItem.map((ci, idx) => {
+                if (idx === index) {
+                    const newQty = getItemQty(ci) + 1;
+                    return { ...ci, quantity: newQty, qty: newQty };
+                }
+                return ci;
+            });
+
+            return {
+                ...state,
+                cartSize: calculateCartSize(updatedCartItem),
+                cartItem: updatedCartItem,
+                totalCartValue: getCartValue(updatedCartItem),
+            };
+        }
+
         case "Remove from Cart": {
             const payload = action.payload;
             let targetIndex = -1;

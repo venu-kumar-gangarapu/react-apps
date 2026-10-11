@@ -9,14 +9,12 @@ export default function Cart() {
   const {isLoggedin} = useSelector(state => state.auth);
   const navigate = useNavigate();
 
-  const addItem = (item) => {
-    dispatch({ type: "Add to Cart", payload: { item, restaurant: cart.currentRestarunt } });
-    dispatch({ type: "total cart value" });
+  const addItem = (index) => {
+    dispatch({ type: "Increment Qty", payload: { index } });
   };
 
   const removeItem = (index) => {
     dispatch({ type: "Remove from Cart", payload: { index } });
-    dispatch({ type: "total cart value" });
   };
 
   const orderNow = ()=>{
@@ -51,7 +49,7 @@ export default function Cart() {
                   <p>₹{price * quantity}</p>
                   <button onClick={() => removeItem(index)}>-</button>
                   <span>Qty: {quantity}</span>
-                  <button onClick={() => addItem(item)}>+</button>
+                  <button onClick={() => addItem(index)}>+</button>
                 </div>
               </div>
             );
