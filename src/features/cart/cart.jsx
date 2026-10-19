@@ -50,11 +50,11 @@ export default function Cart() {
       // Step 1: Create the order
       const orderResponse = await postOrder(orderPayload);
       console.log("Order placed:", orderResponse);
-      const orderId = orderResponse?._id || orderResponse?.orderId;
+      const userId = orderResponse?.userId;
 
 
       // Step 3: Redirect to payment gateway with paymentId + orderId + amount
-      window.location.href = `https://payment-gate-way-murex.vercel.app/payment?paymentId=${paymentId}&orderId=${orderId}&amount=${totalAmount}`;
+      window.location.href = `https://payment-gate-way-murex.vercel.app/payment?paymentId=${paymentId}&userId=${userId}&amount=${totalAmount}`;
     } catch (error) {
       console.error("Checkout failed:", error);
       alert(error?.message || "Failed to proceed. Please try again.");
