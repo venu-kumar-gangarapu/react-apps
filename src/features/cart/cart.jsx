@@ -38,6 +38,7 @@ export default function Cart() {
       productDetails,
       totalAmount,
       status: "pending",
+      paymentId:''
     };
 
     try {
@@ -45,7 +46,7 @@ export default function Cart() {
       const paymentResponse = await generatePayment(totalAmount);
       console.log("Payment generated:", paymentResponse);
       const paymentId = paymentResponse?.paymentId;
-      
+      orderPayload.paymentId = paymentId;
       // Step 1: Create the order
       const orderResponse = await postOrder(orderPayload);
       console.log("Order placed:", orderResponse);
