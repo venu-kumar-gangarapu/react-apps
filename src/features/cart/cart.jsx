@@ -2,11 +2,12 @@ import { useContext, useEffect } from "react";
 import "./cart.css";
 import { CartProvider } from "../../shared/contexts/cartContext";
 import { useSelector } from "react-redux";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { postOrder, generatePayment } from "../../shared/services/orders";
 
 export default function Cart() {
   const { cart, dispatch } = useContext(CartProvider);
-  const {isLoggedin} = useSelector(state => state.auth);
+  const { isLoggedin, user } = useSelector(state => state.auth);
   const navigate = useNavigate();
 
   const addItem = (index) => {
@@ -17,17 +18,46 @@ export default function Cart() {
     dispatch({ type: "Remove from Cart", payload: { index } });
   };
 
-  const orderNow = ()=>{
-    if(isLoggedin){
-      let amount = cart.totalCartValue + 40;
-      let orderId = 200789876;
-      let url = 'https://payment-gate-way-murex.vercel.app/'
-      window.location.href =
-    `https://payment-gate-way-murex.vercel.app/payment?orderId=${orderId}&amount=${amount}`;
-    }else{
+  const orderNow = async () => {
+    if (!isLoggedin) {
       navigate("/login");
+      return;
     }
-  }
+
+    const totalAmount = cart.totalCartValue + 40;
+
+    // Map cart items to the API's expected shape
+    const productDetails = cart.cartItem.map((item) => ({
+      itemName: item.name,
+      quantity: item.quantity || item.qty || 1,
+      price: Number(item.price) || 0,
+    }));
+
+    const orderPayload = {
+      userId: user,
+      productDetails,
+      totalAmount,
+      status: "pending",
+    };
+
+    try {
+      // Step 1: Create the order
+      const orderResponse = await postOrder(orderPayload);
+      console.log("Order placed:", orderResponse);
+      const orderId = orderResponse?._id || orderResponse?.orderId;
+
+      // Step 2: Generate a payment ID for this amount
+      const paymentResponse = await generatePayment(totalAmount);
+      console.log("Payment generated:", paymentResponse);
+      const paymentId = paymentResponse?.paymentId;
+
+      // Step 3: Redirect to payment gateway with paymentId + orderId + amount
+      window.location.href = `https://payment-gate-way-murex.vercel.app/payment?paymentId=${paymentId}&orderId=${orderId}&amount=${totalAmount}`;
+    } catch (error) {
+      console.error("Checkout failed:", error);
+      alert(error?.message || "Failed to proceed. Please try again.");
+    }
+  };
   useEffect(() => {
     console.log(cart);
   }, [cart]);

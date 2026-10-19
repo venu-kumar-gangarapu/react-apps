@@ -43,11 +43,20 @@ const getOrder = async (id) => {
 
 const postOrder = async (order) => {
     try {
-        const response = await api.post("/auth/register", order);
+        const response = await api.post("/orders", order);
         return response.data;
     } catch (error) {
         throw handleApiError(error);
     }
 };
 
-export {postOrder,getOrder,getOrders}
+const generatePayment = async (amount) => {
+    try {
+        const response = await api.post("/payment/generate", { amount });
+        return response.data; // { success, paymentId, amount, message }
+    } catch (error) {
+        throw handleApiError(error);
+    }
+};
+
+export { postOrder, getOrder, getOrders, generatePayment };
