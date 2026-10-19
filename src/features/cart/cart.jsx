@@ -41,15 +41,16 @@ export default function Cart() {
     };
 
     try {
+      // Step 2: Generate a payment ID for this amount
+      const paymentResponse = await generatePayment(totalAmount);
+      console.log("Payment generated:", paymentResponse);
+      const paymentId = paymentResponse?.paymentId;
+      
       // Step 1: Create the order
       const orderResponse = await postOrder(orderPayload);
       console.log("Order placed:", orderResponse);
       const orderId = orderResponse?._id || orderResponse?.orderId;
 
-      // Step 2: Generate a payment ID for this amount
-      const paymentResponse = await generatePayment(totalAmount);
-      console.log("Payment generated:", paymentResponse);
-      const paymentId = paymentResponse?.paymentId;
 
       // Step 3: Redirect to payment gateway with paymentId + orderId + amount
       window.location.href = `https://payment-gate-way-murex.vercel.app/payment?paymentId=${paymentId}&orderId=${orderId}&amount=${totalAmount}`;
