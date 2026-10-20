@@ -1,13 +1,15 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./cart.css";
 import { CartProvider } from "../../shared/contexts/cartContext";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { postOrder, generatePayment } from "../../shared/services/orders";
+import Loader from "../../shared/components/Loader/loader";
 
 export default function Cart() {
   const { cart, dispatch } = useContext(CartProvider);
   const { isLoggedin, user } = useSelector(state => state.auth);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const addItem = (index) => {
@@ -24,6 +26,7 @@ export default function Cart() {
       return;
     }
 
+    setLoading(true);
     const totalAmount = cart.totalCartValue + 40;
 
     // Map cart items to the API's expected shape
@@ -61,6 +64,7 @@ export default function Cart() {
       // Step 4: Redirect to payment gateway
       window.location.href = `https://payment-gate-way-murex.vercel.app/payment?paymentId=${paymentId}&userId=${userId}&amount=${totalAmount}`;
     } catch (error) {
+      setLoading(false);
       console.error("Checkout failed:", error);
       alert(error?.message || "Failed to proceed. Please try again.");
     }
@@ -69,6 +73,10 @@ export default function Cart() {
   useEffect(() => {
     console.log(cart);
   }, [cart]);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div className="cart-page">
