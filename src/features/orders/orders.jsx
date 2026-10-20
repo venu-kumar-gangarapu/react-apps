@@ -2,58 +2,31 @@ import { useEffect, useState } from "react";
 import "./orders.css";
 import { getOrders } from "../../shared/services/orders";
 
-const orderData = [
-  {
-    _id: "6a8acf60220e8c2e3571c82a",
-    userId: "venu",
-    status: "approved",
-    productDetails: [
-      {
-        itemName: "String",
-        quantity: 1,
-        price: 200,
-        _id: "6a8adc8c106e57ece77a8907",
-      },
-      {
-        itemName: "String",
-        quantity: 1,
-        price: 200,
-        _id: "6a8adc8c106e57ece77a8907",
-      },
-      {
-        itemName: "String",
-        quantity: 1,
-        price: 200,
-        _id: "6a8adc8c106e57ece77a8907",
-      },
-    ],
-    createdAt: "2026-08-23T10:45:52.229Z",
-    updatedAt: "2026-08-23T11:42:04.962Z",
-    totalAmount: 250,
-  },
-  {
-    _id: "6a8ad476460241b252187eac",
-    userId: "venu",
-    status: "pending",
-    productDetails: [],
-    createdAt: "2026-08-23T11:07:34.358Z",
-    updatedAt: "2026-08-23T11:07:34.358Z",
-  },
-];
-
 export default function Orders() {
   const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [expandedOrder, setExpandedOrder] = useState(null);
+
   const handleViewDetails = (orderId) => {
     setExpandedOrder(expandedOrder === orderId ? null : orderId);
   };
+
   useEffect(() => {
-    async function getOrder (){
-      const data = await getOrders();
-      console.log(data);
+    async function fetchOrders() {
+      try {
+        const data = await getOrders();
+        console.log("Orders API response:", data);
+        // API returns an array directly
+        setOrders(Array.isArray(data) ? data : data?.orders || []);
+      } catch (err) {
+        console.error("Failed to fetch orders:", err);
+        setError(err?.message || "Failed to load orders");
+      } finally {
+        setLoading(false);
+      }
     }
-    getOrder();
-    setOrders(orderData);
+    fetchOrders();
   }, []);
 
   const formatDate = (date) => {
@@ -70,6 +43,28 @@ export default function Orders() {
       minute: "2-digit",
     });
   };
+
+  if (loading) {
+    return (
+      <div className="orders-page">
+        <div className="orders-container">
+          <h1 className="orders-title">My Orders</h1>
+          <p style={{ textAlign: "center", marginTop: "40px" }}>Loading orders...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="orders-page">
+        <div className="orders-container">
+          <h1 className="orders-title">My Orders</h1>
+          <p style={{ textAlign: "center", color: "red", marginTop: "40px" }}>{error}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="orders-page">
@@ -89,7 +84,6 @@ export default function Orders() {
                 <div className="order-header">
                   <div>
                     <p className="order-label">ORDER ID</p>
-
                     <p className="order-id">#{order._id}</p>
                   </div>
 
@@ -98,16 +92,23 @@ export default function Orders() {
                   </span>
                 </div>
 
+                {/* Payment ID */}
+                {order.paymentId && (
+                  <div className="order-payment-id">
+                    <span className="order-label">PAYMENT ID</span>
+                    <span className="payment-id-value">{order.paymentId}</span>
+                  </div>
+                )}
+
                 {/* Order Date */}
                 <div className="order-date">
                   <span>Ordered on {formatDate(order.createdAt)}</span>
-
                   <span>{formatTime(order.createdAt)}</span>
                 </div>
 
                 {/* Products */}
                 <div className="order-products">
-                  {order.productDetails.length > 0 ? (
+                  {order.productDetails && order.productDetails.length > 0 ? (
                     order.productDetails.map((product) => (
                       <div className="order-product" key={product._id}>
                         <div className="product-info">
@@ -115,7 +116,6 @@ export default function Orders() {
 
                           <div>
                             <h3>{product.itemName}</h3>
-
                             <p>Qty: {product.quantity}</p>
                           </div>
                         </div>
@@ -128,10 +128,8 @@ export default function Orders() {
                   ) : (
                     <div className="empty-order">
                       <span className="empty-icon">📦</span>
-
                       <div>
                         <h3>Order is being processed</h3>
-
                         <p>Product details are not available yet.</p>
                       </div>
                     </div>
@@ -166,27 +164,23 @@ export default function Orders() {
 
                       <div className="price-row total-row">
                         <strong>Total</strong>
-                        <strong>
-                          ₹{(order.totalAmount || 0) + 10 + 10 + 40}
-                        </strong>
+                        <strong>₹{order.totalAmount || 0}</strong>
                       </div>
                     </div>
                   )}
+
                   <div className="d-flex justify-content-between w-100">
-                  <div className="order-total">
-                    <span>Total Amount</span>
+                    <div className="order-total">
+                      <span>Total Amount</span>
+                      <strong>₹{order.totalAmount || 0}</strong>
+                    </div>
 
-                    <strong>₹{order.totalAmount || 0}</strong>
-                  </div>
-
-                  <button
-                    className="view-order-btn"
-                    onClick={() => handleViewDetails(order._id)}
-                  >
-                    {expandedOrder === order._id
-                      ? "Hide Details"
-                      : "View Details"}
-                  </button>
+                    <button
+                      className="view-order-btn"
+                      onClick={() => handleViewDetails(order._id)}
+                    >
+                      {expandedOrder === order._id ? "Hide Details" : "View Details"}
+                    </button>
                   </div>
                 </div>
               </div>

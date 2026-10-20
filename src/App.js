@@ -8,20 +8,29 @@ import { CartContext } from "./shared/contexts/cartContext";
 import { DialogContext } from "./shared/contexts/dialogContext";
 import { FilterContext } from "./shared/contexts/filterContext";
 import { store } from "./store";
+import useAutoLogout from "./shared/hooks/useAutoLogout";
+
+function AppShell() {
+  useAutoLogout();
+
+  return (
+    <DialogContext>
+      <CartContext>
+        <FilterContext>
+          <Header isLogin="true" />
+          <AppRotes />
+          <Dialog />
+          <Footer />
+        </FilterContext>
+      </CartContext>
+    </DialogContext>
+  );
+}
 
 function App() {
   return (
     <Provider store={store}>
-      <DialogContext>
-        <CartContext>
-          <FilterContext>
-            <Header isLogin="true" />
-            <AppRotes />
-            <Dialog />
-            <Footer />
-          </FilterContext>
-        </CartContext>
-      </DialogContext>
+      <AppShell />
     </Provider>
   );
 }

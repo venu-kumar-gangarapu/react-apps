@@ -38,31 +38,38 @@ export default function Cart() {
       productDetails,
       totalAmount,
       status: "pending",
-      paymentId:''
+      paymentId: '',
     };
 
     try {
-      // Step 2: Generate a payment ID for this amount
+      // Step 1: Generate a payment ID for this amount
       const paymentResponse = await generatePayment(totalAmount);
       console.log("Payment generated:", paymentResponse);
       const paymentId = paymentResponse?.paymentId;
       orderPayload.paymentId = paymentId;
-      // Step 1: Create the order
+
+      // Step 2: Create the order
       const orderResponse = await postOrder(orderPayload);
       console.log("Order placed:", orderResponse);
       const userId = orderResponse?.userId;
 
+      // Step 3: Mark departure time — so the inactivity timer is
+      // paused while the user is on the external payment page.
+      // On return (app reload), authSlice will compensate loginTime.
+      sessionStorage.setItem("paymentRedirectAt", Date.now().toString());
 
-      // Step 3: Redirect to payment gateway with paymentId + orderId + amount
+      // Step 4: Redirect to payment gateway
       window.location.href = `https://payment-gate-way-murex.vercel.app/payment?paymentId=${paymentId}&userId=${userId}&amount=${totalAmount}`;
     } catch (error) {
       console.error("Checkout failed:", error);
       alert(error?.message || "Failed to proceed. Please try again.");
     }
   };
+
   useEffect(() => {
     console.log(cart);
   }, [cart]);
+
   return (
     <div className="cart-page">
       {/* <h2>My Cart</h2>   */}

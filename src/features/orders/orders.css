@@ -350,3 +350,36 @@
   font-size: 16px;
   color: #222;
 }
+
+
+/* =========================
+   PAYMENT ID ROW
+========================= */
+
+.order-payment-id {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 24px;
+  background: #f0f7ff;
+  border-bottom: 1px solid #e0edf9;
+}
+
+.order-payment-id .order-label {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.payment-id-value {
+  font-size: 12px;
+  font-family: monospace;
+  color: #1a73e8;
+  font-weight: 600;
+  word-break: break-all;
+}
+
+/* confirmed status badge */
+.order-status.confirmed {
+  background: #e7f7ed;
+  color: #16833a;
+}
